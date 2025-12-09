@@ -548,10 +548,6 @@
   background-color: var(--color-white);
   text-align: center;
 
-  @include respond-to('md') {
-    padding: var(--space-3xl) 0;
-  }
-
   @include respond-to('sm') {
     padding: var(--space-xl) 0;
   }
@@ -603,15 +599,19 @@
 
 
 .blocks-trust-by-design {
-  padding: 0;
+  padding: var(--space-3xl) 0;
   background-color: var(--color-white);
+
+  @include respond-to('sm') {
+    padding: var(--space-xl) 0;
+  }
 
   h3 {
     font-size: 38px;
     line-height: 150%;
     font-weight: 500;
     color: var(--title);
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-lg);
     margin-top: 0;
     text-align: left;
   }
@@ -721,6 +721,7 @@
         background-color: var(--color-primary);
         color: var(--color-white);
         font-size: 16px;
+        margin-top: 16px;
         font-weight: 500;
         font-family: Manrope, sans-serif;
       }
@@ -1130,7 +1131,7 @@
 
 .blocks-form {
   color: var(--color-white);
-  padding: 0;
+  padding: var(--space-3xl) 0;
 
   &-block {
     background-color: var(--color-primary);
@@ -1384,7 +1385,7 @@
 
 
 .blocks-started {
-  padding: var(--space-4xl) 0;
+  padding: var(--space-3xl) 0;
   background-color: var(--color-white);
 
   &-block {
