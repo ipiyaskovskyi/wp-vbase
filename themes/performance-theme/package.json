@@ -1,0 +1,29 @@
+{
+  "name": "performance-theme",
+  "version": "1.0.0",
+  "description": "High-performance WordPress theme with full customization",
+  "scripts": {
+    "build:css": "npm run minify:main && npm run minify:critical",
+    "minify:main": "cleancss -o assets/css/main.min.css assets/css/main.css",
+    "minify:critical": "cleancss -o assets/css/critical.min.css assets/css/critical.css",
+    "build:js": "terser assets/js/main.js -o assets/js/main.min.js -c -m",
+    "build": "npm run build:css && npm run build:js",
+    "watch:css": "nodemon --watch assets/css/main.css --watch assets/css/critical.css --exec 'npm run build:css'",
+    "watch": "npm run watch:css",
+    "dev": "npm run build && npm run watch"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.27.0",
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "performance",
+    "seo"
+  ],
+  "author": "Developer",
+  "license": "GPL-2.0-or-later"
+}
+

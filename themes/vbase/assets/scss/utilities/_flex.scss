@@ -1,0 +1,140 @@
+@use '../mixins' as *;
+
+
+.u-flex { 
+  display: flex; 
+}
+
+.u-inline-flex { 
+  display: inline-flex; 
+}
+
+.u-flex-col { 
+  flex-direction: column; 
+}
+
+.u-flex-row { 
+  flex-direction: row; 
+}
+
+.u-flex-wrap { 
+  flex-wrap: wrap; 
+}
+
+.u-flex-nowrap { 
+  flex-wrap: nowrap; 
+}
+
+.u-items-start { 
+  align-items: flex-start; 
+}
+
+.u-items-center { 
+  align-items: center; 
+}
+
+.u-items-end { 
+  align-items: flex-end; 
+}
+
+.u-items-stretch { 
+  align-items: stretch; 
+}
+
+.u-justify-start { 
+  justify-content: flex-start; 
+}
+
+.u-justify-center { 
+  justify-content: center; 
+}
+
+.u-justify-end { 
+  justify-content: flex-end; 
+}
+
+.u-justify-between { 
+  justify-content: space-between; 
+}
+
+.u-justify-around { 
+  justify-content: space-around; 
+}
+
+.u-self-start { 
+  align-self: flex-start; 
+}
+
+.u-self-center { 
+  align-self: center; 
+}
+
+.u-self-end { 
+  align-self: flex-end; 
+}
+
+.u-flex-1 { 
+  flex: 1 1 0%; 
+}
+
+.u-flex-auto { 
+  flex: 1 1 auto; 
+}
+
+.u-flex-none { 
+  flex: none; 
+}
+
+$gap-scale: (
+  'xxs': var(--space-xxs),
+  'xs': var(--space-xs),
+  'sm': var(--space-sm),
+  'md': var(--space-md),
+  'lg': var(--space-lg),
+  'xl': var(--space-xl),
+  '2xl': var(--space-2xl),
+);
+
+@each $name, $value in $gap-scale {
+  .u-gap-#{$name} {
+    gap: #{$value};
+  }
+}
+
+@include respond-to('md') {
+  .md\:u-flex-col { 
+    flex-direction: column; 
+  }
+  
+  .md\:u-flex-wrap { 
+    flex-wrap: wrap; 
+  }
+  
+  .md\:u-items-center { 
+    align-items: center; 
+  }
+  
+  .md\:u-justify-center { 
+    justify-content: center; 
+  }
+}
+
+@include respond-to('sm') {
+  .sm\:u-flex-col { 
+    flex-direction: column; 
+  }
+  
+  .sm\:u-flex-wrap { 
+    flex-wrap: wrap; 
+  }
+  
+  .sm\:u-items-center { 
+    align-items: center; 
+  }
+  
+  .sm\:u-justify-center { 
+    justify-content: center; 
+  }
+}
+
+

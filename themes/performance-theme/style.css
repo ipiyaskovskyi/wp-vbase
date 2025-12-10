@@ -1,0 +1,20 @@
+/*
+Theme Name: Performance Theme
+Theme URI: https://yoursite.com
+Author: Developer
+Author URI: https://yoursite.com
+Description: Ultra-optimized WordPress theme built for maximum performance scores. Features critical CSS inlining, lazy loading, minimal DOM, async/defer loading, and SEO best practices.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: performance-theme
+Tags: fast-loading, seo-optimized, accessibility-ready, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+Performance Theme - Built for speed and SEO excellence.
+*/
+
+/* Minimal base styles - main styles loaded conditionally */
+

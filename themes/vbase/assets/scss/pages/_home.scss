@@ -396,11 +396,11 @@
 
     p {
       font-family: Manrope, sans-serif;
-      font-size: 18px;
+      font-size: 14px;
       text-transform: none;
       letter-spacing: normal;
       color: var(--text-muted);
-      margin-bottom: var(--space-md);
+      margin: 0;
       font-weight: 400;
     }
 
@@ -408,7 +408,7 @@
       margin-bottom: var(--space-2xl);
 
       p {
-        font-size: 14px;
+        font-size: 13px;
       }
     }
 
@@ -427,6 +427,16 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 0;
+
+    @include respond-to('md') {
+      gap: 0;
+      justify-content: flex-start;
+    }
+
+    @include respond-to('sm') {
+      gap: 0;
+      justify-content: flex-start;
+    }
   }
 
   &-item {
@@ -438,6 +448,7 @@
     position: relative;
 
     @include respond-to('md') {
+      justify-content: flex-start;
       padding: 0 var(--space-xl);
 
       &:not(:last-child)::after {
@@ -446,6 +457,11 @@
     }
 
     @include respond-to('sm') {
+      justify-content: flex-start;
+      padding: 0 var(--space-lg);
+      flex-basis: 50%;
+      margin-bottom: var(--space-lg);
+
       &:not(:last-child)::after {
         display: none;
       }
@@ -532,6 +548,10 @@
   background-color: var(--color-white);
   text-align: center;
 
+  @include respond-to('md') {
+    padding: var(--space-3xl) 0;
+  }
+
   @include respond-to('sm') {
     padding: var(--space-xl) 0;
   }
@@ -583,19 +603,15 @@
 
 
 .blocks-trust-by-design {
-  padding: var(--space-3xl) 0;
+  padding: 0;
   background-color: var(--color-white);
-
-  @include respond-to('sm') {
-    padding: var(--space-xl) 0;
-  }
 
   h3 {
     font-size: 38px;
     line-height: 150%;
     font-weight: 500;
     color: var(--title);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-4xl);
     margin-top: 0;
     text-align: left;
   }
@@ -705,7 +721,6 @@
         background-color: var(--color-primary);
         color: var(--color-white);
         font-size: 16px;
-        margin-top: 16px;
         font-weight: 500;
         font-family: Manrope, sans-serif;
       }
@@ -1115,7 +1130,7 @@
 
 .blocks-form {
   color: var(--color-white);
-  padding: var(--space-3xl) 0;
+  padding: 0;
 
   &-block {
     background-color: var(--color-primary);
@@ -1334,8 +1349,9 @@
     }
 
     &-block {
+      padding-top: var(--space-3xl);
+      padding-bottom: var(--space-3xl);
       gap: var(--space-xl);
-      padding: var(--space-3xl) var(--space-2xl);
 
       &-text {
         &-inner {
@@ -1368,7 +1384,7 @@
 
 
 .blocks-started {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-4xl) 0;
   background-color: var(--color-white);
 
   &-block {
