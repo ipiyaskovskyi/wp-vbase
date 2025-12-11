@@ -768,7 +768,7 @@
 .feature-panel {
   display: flex;
   align-items: stretch;
-  gap: var(--space-5xl);
+  gap: var(--space-4xl);
   padding-bottom: var(--space-xl);
 
   &:last-child {
@@ -885,6 +885,10 @@
     gap: var(--space-md);
     margin-bottom: var(--space-md);
     align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__image {
@@ -917,7 +921,7 @@
   @include respond-to('md') {
     flex-direction: column-reverse;
     gap: var(--space-3xl);
-    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-xl);
 
     &__content {
       max-width: 100%;
@@ -952,7 +956,7 @@
 
   @include respond-to('sm') {
     gap: var(--space-3xl);
-    margin-bottom: var(--section-padding-sm);
+    padding-bottom: var(--space-xs);
 
     &__title {
       font-size: 32px;
