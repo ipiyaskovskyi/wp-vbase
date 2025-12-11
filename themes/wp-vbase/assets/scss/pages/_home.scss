@@ -49,8 +49,8 @@
 
 .hero {
   background: var(--bg-secondary) url('../../assets/images/hero-bg.svg') center / cover no-repeat;
-  padding: 0 var(--container-padding);
-  min-height: calc(100vh - var(--header-height));
+  padding: 0 var(--container-padding) var(--space-xl);
+  // min-height: calc(100vh - var(--header-height));
   max-height: 900px;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 32px;
     line-height: 150%;
     color: var(--title);
 
@@ -100,13 +100,13 @@
     }
 
     @include respond-to('sm') {
-      font-size: 28px;
+      font-size: 24px;
     }
   }
 
   @include respond-to('sm') {
-    padding: 0 var(--container-padding);
-    min-height: calc(100vh - var(--header-height));
+    padding: 0 var(--container-padding) var(--space-lg);
+    // min-height: calc(100vh - var(--header-height));
     max-height: none;
   }
 
@@ -220,7 +220,7 @@
   transform: translateY(40px);
 
   img {
-    max-width: 65%;
+    max-width: 55%;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -254,7 +254,7 @@
 .hero__bottom {
   animation: fadeIn 0.6s ease-out 0.5s forwards;
   opacity: 0;
-  padding: var(--space-xs) 0;
+  // padding: var(--space-xs) 0;
 }
 
 .hero__bottom-title {
@@ -283,14 +283,16 @@
 .hero__bottom-item {
   background-color: var(--color-white);
   padding: var(--space-md);
-  padding-bottom: 60px;
   position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 4px;
   animation: fadeIn 0.5s ease-out forwards;
   opacity: 0;
+  font-size: 14px;
   transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
 
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
@@ -418,11 +420,12 @@
 
     p {
       font-family: Manrope, sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       text-transform: none;
       letter-spacing: normal;
       color: var(--text-muted);
       font-weight: 400;
+      margin-top: 5px;
     }
 
     @include respond-to('md') {
@@ -455,7 +458,7 @@
     align-items: center;
     justify-content: flex-start;
     transition: opacity var(--transition-base), transform var(--transition-base);
-    padding: 0 var(--space-2xl);
+    padding: 0 var(--space-xl);
     position: relative;
 
     @include respond-to('md') {
@@ -494,18 +497,18 @@
 
     img {
       max-width: 100px;
-      max-height: 45px;
+      max-height: 30px;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
-      filter: grayscale(0%);
-      transition: filter var(--transition-base), opacity var(--transition-base), box-shadow var(--transition-base);
+      transition: opacity var(--transition-base) 0.3ms;
+      opacity: 1;
     }
 
     &:hover {
       img {
-        filter: grayscale(100%);
+        opacity: 0.5;
       }
     }
 
@@ -569,13 +572,9 @@
 
 
 .b-statistics {
-  padding: var(--space-xl) 0;
+  padding: var(--space-xs) 0;
   background-color: var(--color-white);
   text-align: center;
-
-  @include respond-to('sm') {
-    padding: var(--space-xl) 0;
-  }
 
   &-content {
     display: flex;
@@ -586,7 +585,7 @@
 
     span {
       font-family: Manrope, sans-serif;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 500;
       color: var(--title);
       line-height: 1.5;
@@ -650,6 +649,19 @@
     @include respond-to('sm') {
       gap: var(--space-2xl);
       align-items: flex-start;
+    }
+  }
+
+  @include respond-to('md') {
+    h3 {
+      font-size: 32px;
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  @include respond-to('sm') {
+    h3 {
+      font-size: 32px;
     }
   }
 

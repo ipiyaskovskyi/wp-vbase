@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('VBASE_VERSION', '1.0.0');
+define('VBASE_VERSION', time()); // Use timestamp to force cache refresh
 define('VBASE_DIR', get_template_directory());
 define('VBASE_URI', get_template_directory_uri());
 

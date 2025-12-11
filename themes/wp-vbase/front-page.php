@@ -28,69 +28,72 @@ get_header();
                 <?php esc_html_e('Tailored Solutions for', 'vbase'); ?>
             </div>
             <div class="hero__bottom-grid">
-                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <a href="<?php echo esc_url(home_url('/alt-data/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Alternative Data', 'vbase'); ?></span>
                     <p><?php esc_html_e('Showcase and increase your data\'s value', 'vbase'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/alt-data/')); ?>" class="hero__bottom-item-link">
+                    <!-- <a href="<?php echo esc_url(home_url('/alt-data/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a>
-                </div>
+                    </a> -->
+                </a>
 
-                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Investment Managers and Allocators', 'vbase'); ?></span>
                     <p><?php esc_html_e('Turn any strategy into a live verified index', 'vbase'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="hero__bottom-item-link">
+                    <!-- <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a>
-                </div>
+                    </a> -->
+                </a>
 
-                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <a href="<?php echo esc_url(home_url('/signals/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Trading Signals', 'vbase'); ?></span>
                     <p><?php esc_html_e('Make signals credible to leading hedge funds', 'vbase'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/signals/')); ?>" class="hero__bottom-item-link">
+                    <!-- <a href="<?php echo esc_url(home_url('/signals/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a>
-                </div>
+                    </a> -->
+                </a>
 
-                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <a href="<?php echo esc_url(home_url('/predictive-data/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Predictive Datasets', 'vbase'); ?></span>
                     <p><?php esc_html_e('Prove the value of your data and models', 'vbase'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/predictive-data/')); ?>" class="hero__bottom-item-link">
+                    <!-- <a href="<?php echo esc_url(home_url('/predictive-data/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="client-logos" class="b-logos">
-            <div class="b-logos-title">
-                <p><?php esc_html_e('validityBase, Chosen by Clients Setting the Standard Worldwide', 'vbase'); ?></p>
-            </div>
-            <div class="b-logos-grid">
-                <?php
-                // Client logos - can be customized via theme options
-                $client_logos = [
-                    ['url' => 'https://stocktwits.com/', 'image' => 'client-logos/stocktwits-logo.svg', 'alt' => 'StockTwits'],
-                    ['url' => 'https://www.tenzingmemo.com/', 'image' => 'client-logos/tenzing-logo.svg', 'alt' => 'Tenzing'],
-                    ['url' => 'https://www.bluewatermacro.com/', 'image' => 'client-logos/bluewatermacro-logo.png', 'alt' => 'BlueWater Macro'],
-                    ['url' => 'https://en.allears.ai/', 'image' => 'client-logos/image2.webp', 'alt' => 'AllEars'],
-                    ['url' => 'https://www.quantconnect.com/', 'image' => 'client-logos/qc-copy.webp', 'alt' => 'QuantConnect'],
-                    ['url' => 'https://giesbusiness.illinois.edu/experience/academies-centers/derivatives-and-trading-academy', 'image' => 'client-logos/uiuc-logo.svg', 'alt' => 'UIUC'],
-                    ['url' => 'https://newmarkrisk.com/', 'image' => 'client-logos/nmr-logo.png', 'alt' => 'NewMark Risk'],
-                ];
-                
-                foreach ($client_logos as $logo) :
-                ?>
-                    <div class="b-logos-item">
-                        <a href="<?php echo esc_url($logo['url']); ?>" target="_blank" rel="noopener">
-                            <img src="<?php echo esc_url(VBASE_URI . '/assets/images/' . $logo['image']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+                    </a> -->
+                </a>
             </div>
         </div>
     </div>
     <div class="hero__bg"></div>
 </section>
+
+<section id="client-logos" class="b-logos">
+    <div class="l-container">
+        <div class="b-logos-title">
+            <p><?php esc_html_e('validityBase, Chosen by Clients Setting the Standard Worldwide', 'vbase'); ?></p>
+        </div>
+        <div class="b-logos-grid">
+            <?php
+            // Client logos - can be customized via theme options
+            $client_logos = [
+                ['url' => 'https://stocktwits.com/', 'image' => 'client-logos/stocktwits-logo.svg', 'alt' => 'StockTwits'],
+                ['url' => 'https://www.tenzingmemo.com/', 'image' => 'client-logos/tenzing-logo.svg', 'alt' => 'Tenzing'],
+                ['url' => 'https://www.bluewatermacro.com/', 'image' => 'client-logos/bluewatermacro-logo.png', 'alt' => 'BlueWater Macro'],
+                ['url' => 'https://en.allears.ai/', 'image' => 'client-logos/image2.webp', 'alt' => 'AllEars'],
+                ['url' => 'https://www.quantconnect.com/', 'image' => 'client-logos/qc-copy.webp', 'alt' => 'QuantConnect'],
+                ['url' => 'https://giesbusiness.illinois.edu/experience/academies-centers/derivatives-and-trading-academy', 'image' => 'client-logos/uiuc-logo.svg', 'alt' => 'UIUC'],
+                ['url' => 'https://newmarkrisk.com/', 'image' => 'client-logos/nmr-logo.png', 'alt' => 'NewMark Risk'],
+            ];
+            
+            foreach ($client_logos as $logo) :
+            ?>
+                <div class="b-logos-item">
+                    <a href="<?php echo esc_url($logo['url']); ?>" target="_blank" rel="noopener">
+                        <img src="<?php echo esc_url(VBASE_URI . '/assets/images/' . $logo['image']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
 
 <section id="featured-in" class="b-logos">
     <div class="l-container">
