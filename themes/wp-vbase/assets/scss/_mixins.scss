@@ -3,6 +3,8 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+$breakpoint-4k: 2560px;
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == 'sm' {
@@ -25,6 +27,16 @@ $breakpoint-xl: 1200px;
       @content;
     }
   }
+  @else if $breakpoint == 'xxl' {
+    @media (min-width: #{$breakpoint-xxl}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == '4k' {
+    @media (min-width: #{$breakpoint-4k}) {
+      @content;
+    }
+  }
   @else {
     @media (max-width: #{$breakpoint}) {
       @content;
@@ -39,12 +51,27 @@ $breakpoint-xl: 1200px;
     }
   }
   @else if $breakpoint == 'md' {
-    @media (min-width: #{$breakpoint-lg}) {
+    @media (min-width: #{$breakpoint-md}) {
       @content;
     }
   }
   @else if $breakpoint == 'lg' {
+    @media (min-width: #{$breakpoint-lg}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'xl' {
     @media (min-width: #{$breakpoint-xl}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'xxl' {
+    @media (min-width: #{$breakpoint-xxl}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == '4k' {
+    @media (min-width: #{$breakpoint-4k}) {
       @content;
     }
   }
@@ -69,6 +96,24 @@ $breakpoint-xl: 1200px;
 
 @mixin desktop {
   @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+@mixin desktop-xxl {
+  @media (min-width: #{$breakpoint-xxl}) {
+    @content;
+  }
+}
+
+@mixin desktop-4k {
+  @media (min-width: #{$breakpoint-4k}) {
     @content;
   }
 }

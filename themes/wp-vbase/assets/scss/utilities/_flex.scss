@@ -117,6 +117,12 @@ $gap-scale: (
   .md\:u-justify-center { 
     justify-content: center; 
   }
+
+  @each $name, $value in $gap-scale {
+    .md\:u-gap-#{$name} {
+      gap: #{$value};
+    }
+  }
 }
 
 @include respond-to('sm') {
@@ -134,6 +140,12 @@ $gap-scale: (
   
   .sm\:u-justify-center { 
     justify-content: center; 
+  }
+
+  @each $name, $value in $gap-scale {
+    .sm\:u-gap-#{$name} {
+      gap: #{$value};
+    }
   }
 }
 

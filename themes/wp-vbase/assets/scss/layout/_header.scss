@@ -122,7 +122,7 @@ header {
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     line-height: 1.25;
-    margin-left: var(--space-2xl);
+    margin-left: var(--space-xs);
     text-decoration: none;
     padding-bottom: var(--space-xs);
     position: relative;
@@ -172,11 +172,6 @@ header {
     .button {
       padding: var(--space-sm) var(--space-lg);
       font-size: var(--font-size-sm);
-
-      @include respond-to('md') {
-        padding: var(--space-xs) var(--space-md);
-        font-size: var(--font-size-xs);
-      }
     }
 
     @include respond-to('md') {

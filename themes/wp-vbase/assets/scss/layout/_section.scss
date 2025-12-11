@@ -1,0 +1,355 @@
+@use '../mixins' as *;
+
+.l-section {
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+
+  @include respond-to('md') {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  @include respond-to('sm') {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  &-xs {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-xs);
+
+    @include respond-to('md') {
+      margin-top: var(--space-xs);
+      margin-bottom: var(--space-xs);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-xs);
+      margin-bottom: var(--space-xs);
+    }
+  }
+
+  &-sm {
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
+
+    @include respond-to('md') {
+      margin-top: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+  }
+
+  &-md {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+
+    @include respond-to('md') {
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  &-lg {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+
+    @include respond-to('md') {
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+  }
+
+  &-xl {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+
+    @include respond-to('md') {
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+  }
+
+  &-2xl {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+
+    @include respond-to('md') {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  &-3xl {
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-3xl);
+
+    @include respond-to('md') {
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  &-4xl {
+    margin-top: var(--space-4xl);
+    margin-bottom: var(--space-4xl);
+
+    @include respond-to('md') {
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    @include respond-to('sm') {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  &-border-top {
+    border-top: 1px solid var(--border-color-light);
+    padding-top: var(--space-2xl);
+
+    @include respond-to('md') {
+      padding-top: var(--space-xl);
+    }
+
+    @include respond-to('sm') {
+      padding-top: var(--space-xl);
+    }
+
+    &-xs {
+      padding-top: var(--space-xs);
+
+      @include respond-to('md') {
+        padding-top: var(--space-xs);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-xs);
+      }
+    }
+
+    &-sm {
+      padding-top: var(--space-sm);
+
+      @include respond-to('md') {
+        padding-top: var(--space-sm);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-sm);
+      }
+    }
+
+    &-md {
+      padding-top: var(--space-md);
+
+      @include respond-to('md') {
+        padding-top: var(--space-md);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-md);
+      }
+    }
+
+    &-lg {
+      padding-top: var(--space-lg);
+
+      @include respond-to('md') {
+        padding-top: var(--space-lg);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-lg);
+      }
+    }
+
+    &-xl {
+      padding-top: var(--space-xl);
+
+      @include respond-to('md') {
+        padding-top: var(--space-lg);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-lg);
+      }
+    }
+
+    &-2xl {
+      padding-top: var(--space-2xl);
+
+      @include respond-to('md') {
+        padding-top: var(--space-xl);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-xl);
+      }
+    }
+
+    &-3xl {
+      padding-top: var(--space-3xl);
+
+      @include respond-to('md') {
+        padding-top: var(--space-2xl);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-xl);
+      }
+    }
+
+    &-4xl {
+      padding-top: var(--space-4xl);
+
+      @include respond-to('md') {
+        padding-top: var(--space-2xl);
+      }
+
+      @include respond-to('sm') {
+        padding-top: var(--space-xl);
+      }
+    }
+  }
+
+  &-border-bottom {
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: var(--space-2xl);
+
+    @include respond-to('md') {
+      padding-bottom: var(--space-xl);
+    }
+
+    @include respond-to('sm') {
+      padding-bottom: var(--space-xl);
+    }
+
+    &-xs {
+      padding-bottom: var(--space-xs);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-xs);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-xs);
+      }
+    }
+
+    &-sm {
+      padding-bottom: var(--space-sm);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-sm);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-sm);
+      }
+    }
+
+    &-md {
+      padding-bottom: var(--space-md);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-md);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-md);
+      }
+    }
+
+    &-lg {
+      padding-bottom: var(--space-lg);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-lg);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-lg);
+      }
+    }
+
+    &-xl {
+      padding-bottom: var(--space-xl);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-lg);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-lg);
+      }
+    }
+
+    &-2xl {
+      padding-bottom: var(--space-2xl);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-xl);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-xl);
+      }
+    }
+
+    &-3xl {
+      padding-bottom: var(--space-3xl);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-2xl);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-xl);
+      }
+    }
+
+    &-4xl {
+      padding-bottom: var(--space-4xl);
+
+      @include respond-to('md') {
+        padding-bottom: var(--space-2xl);
+      }
+
+      @include respond-to('sm') {
+        padding-bottom: var(--space-xl);
+      }
+    }
+  }
+}
+

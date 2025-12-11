@@ -1,3 +1,4 @@
+@use '../mixins' as *;
 
 
 .u-block { 
@@ -46,6 +47,12 @@
 
 .u-text-right { 
   text-align: right; 
+}
+
+@include respond-to('sm') {
+  .sm\:u-text-center {
+    text-align: center;
+  }
 }
 
 .u-uppercase { 
@@ -153,5 +160,42 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Debug class for visualizing sections (remove in production)
+// Add class "debug-sections" to footer element to see all sections
+.debug-sections {
+  section,
+  div[class*="footer-"] {
+    background-color: rgba(255, 0, 0, 0.1) !important;
+    border: 1px dashed rgba(255, 0, 0, 0.5) !important;
+    outline: 1px solid rgba(255, 255, 0, 0.3) !important;
+    position: relative;
+    
+    &::before {
+      content: attr(class);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(255, 0, 0, 0.8);
+      color: white;
+      font-size: 10px;
+      padding: 2px 4px;
+      z-index: 1000;
+      font-family: monospace;
+    }
+  }
 }
 

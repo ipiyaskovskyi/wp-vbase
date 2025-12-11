@@ -59,7 +59,7 @@
     </symbol>
 </svg>
 
-<header>
+<header role="banner">
     <div class="l-container">
         <div class="header u-flex u-justify-between u-items-center">
             <div class="header__brand">
@@ -72,7 +72,7 @@
                 </a>
             </div>
             <div class="header__nav-wrapper u-flex">
-                <nav class="header__nav u-flex u-items-center">
+                <nav class="header__nav u-flex u-items-center" role="navigation" aria-label="<?php esc_attr_e('Primary Menu', 'vbase'); ?>">
                     <ul class="header__menu u-flex">
                         <?php
                         wp_nav_menu([

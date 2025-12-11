@@ -103,3 +103,45 @@ function vbase_widgets_init(): void {
 }
 add_action('widgets_init', 'vbase_widgets_init');
 
+/**
+ * Add Favicon Support
+ */
+function vbase_favicon(): void {
+    $favicon_dir = VBASE_URI . '/assets/images/favicon';
+    $favicon_dir_path = VBASE_DIR . '/assets/images/favicon';
+    
+    // Standard favicon.ico
+    if (file_exists($favicon_dir_path . '/favicon.ico')) {
+        echo '<link rel="icon" type="image/x-icon" href="' . esc_url($favicon_dir . '/favicon.ico') . '">' . "\n";
+    }
+    
+    // PNG favicons for different sizes
+    $favicon_sizes = ['16x16', '32x32', '96x96'];
+    foreach ($favicon_sizes as $size) {
+        $file_path = $favicon_dir_path . '/favicon-' . $size . '.png';
+        if (file_exists($file_path)) {
+            echo '<link rel="icon" type="image/png" sizes="' . esc_attr($size) . '" href="' . esc_url($favicon_dir . '/favicon-' . $size . '.png') . '">' . "\n";
+        }
+    }
+    
+    // Apple Touch Icons
+    $apple_sizes = ['57x57', '60x60', '72x72', '76x76', '114x114', '120x120', '144x144', '152x152', '180x180'];
+    foreach ($apple_sizes as $size) {
+        $file_path = $favicon_dir_path . '/apple-icon-' . $size . '.png';
+        if (file_exists($file_path)) {
+            echo '<link rel="apple-touch-icon" sizes="' . esc_attr($size) . '" href="' . esc_url($favicon_dir . '/apple-icon-' . $size . '.png') . '">' . "\n";
+        }
+    }
+    
+    // Android Chrome icon
+    if (file_exists($favicon_dir_path . '/android-icon-192x192.png')) {
+        echo '<link rel="icon" type="image/png" sizes="192x192" href="' . esc_url($favicon_dir . '/android-icon-192x192.png') . '">' . "\n";
+    }
+    
+    // Web manifest
+    if (file_exists($favicon_dir_path . '/manifest.json')) {
+        echo '<link rel="manifest" href="' . esc_url($favicon_dir . '/manifest.json') . '">' . "\n";
+    }
+}
+add_action('wp_head', 'vbase_favicon', 1);
+

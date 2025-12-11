@@ -42,6 +42,19 @@ ol[role="list"] {
   padding-left: 0;
 }
 
+nav ul,
+nav ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 
 img {
   max-width: 100%;

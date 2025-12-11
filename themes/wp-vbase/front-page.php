@@ -15,9 +15,9 @@ get_header();
                 <h1><strong>validityBase</strong></h1>
                 <h2><?php esc_html_e('The trust layer for valuable data', 'vbase'); ?></h2>
                 <p class="hero__text"><?php esc_html_e('Build trust. Close deals.', 'vbase'); ?></p>
-                <a class="button button--dark with-arrow u-flex u-items-center" target="_blank" href="https://app.vbase.com/">
+                <!-- <a class="button button--dark with-arrow u-flex u-items-center" target="_blank" href="https://app.vbase.com/">
                     Try The App
-                </a>
+                </a> -->
             </div>
             <div class="hero__content-right">
                 <img src="<?php echo esc_url(VBASE_URI . '/assets/images/sample_mock_1_7_-removebg-preview.png'); ?>" alt="<?php esc_attr_e('validityBase', 'vbase'); ?>">
@@ -61,52 +61,49 @@ get_header();
                 </div>
             </div>
         </div>
+        <div id="client-logos" class="b-logos">
+            <div class="b-logos-title">
+                <p><?php esc_html_e('validityBase, Chosen by Clients Setting the Standard Worldwide', 'vbase'); ?></p>
+            </div>
+            <div class="b-logos-grid">
+                <?php
+                // Client logos - can be customized via theme options
+                $client_logos = [
+                    ['url' => 'https://stocktwits.com/', 'image' => 'client-logos/stocktwits-logo.svg', 'alt' => 'StockTwits'],
+                    ['url' => 'https://www.tenzingmemo.com/', 'image' => 'client-logos/tenzing-logo.svg', 'alt' => 'Tenzing'],
+                    ['url' => 'https://www.bluewatermacro.com/', 'image' => 'client-logos/bluewatermacro-logo.png', 'alt' => 'BlueWater Macro'],
+                    ['url' => 'https://en.allears.ai/', 'image' => 'client-logos/image2.webp', 'alt' => 'AllEars'],
+                    ['url' => 'https://www.quantconnect.com/', 'image' => 'client-logos/qc-copy.webp', 'alt' => 'QuantConnect'],
+                    ['url' => 'https://giesbusiness.illinois.edu/experience/academies-centers/derivatives-and-trading-academy', 'image' => 'client-logos/uiuc-logo.svg', 'alt' => 'UIUC'],
+                    ['url' => 'https://newmarkrisk.com/', 'image' => 'client-logos/nmr-logo.png', 'alt' => 'NewMark Risk'],
+                ];
+                
+                foreach ($client_logos as $logo) :
+                ?>
+                    <div class="b-logos-item">
+                        <a href="<?php echo esc_url($logo['url']); ?>" target="_blank" rel="noopener">
+                            <img src="<?php echo esc_url(VBASE_URI . '/assets/images/' . $logo['image']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
     <div class="hero__bg"></div>
 </section>
 
-<section id="client-logos" class="blocks-logos">
+<section id="featured-in" class="b-logos">
     <div class="l-container">
-        <div class="blocks-logos-title">
-            <p><?php esc_html_e('validityBase, Chosen by Clients Setting the Standard Worldwide', 'vbase'); ?></p>
-        </div>
-        <div class="blocks-logos-grid">
-            <?php
-            // Client logos - can be customized via theme options
-            $client_logos = [
-                ['url' => 'https://stocktwits.com/', 'image' => 'image1-2.webp', 'alt' => 'StockTwits'],
-                ['url' => 'https://www.tenzingmemo.com/', 'image' => 'b-on-w-bug-tagline-centered-copy-3.webp', 'alt' => 'Tenzing'],
-                ['url' => 'https://www.bluewatermacro.com/', 'image' => 'image4-1.webp', 'alt' => 'BlueWater Macro'],
-                ['url' => 'https://en.allears.ai/', 'image' => 'image2.webp', 'alt' => 'AllEars'],
-                ['url' => 'https://www.quantconnect.com/', 'image' => 'qc-copy.webp', 'alt' => 'QuantConnect'],
-                ['url' => 'https://giesbusiness.illinois.edu/experience/academies-centers/derivatives-and-trading-academy', 'image' => 'image-copy.webp', 'alt' => 'UIUC'],
-                ['url' => 'https://newmarkrisk.com/', 'image' => 'sher-2.webp', 'alt' => 'NewMark Risk'],
-            ];
-            
-            foreach ($client_logos as $logo) :
-            ?>
-                <div class="blocks-logos-item">
-                    <a href="<?php echo esc_url($logo['url']); ?>" target="_blank" rel="noopener">
-                        <img src="<?php echo esc_url(VBASE_URI . '/assets/images/' . $logo['image']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
-                    </a>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<section id="featured-in" class="blocks-logos">
-    <div class="l-container">
-        <div class="blocks-logos-title">
+        <div class="b-logos-title">
             <p><?php esc_html_e('Featured In', 'vbase'); ?></p>
         </div>
-        <div class="blocks-logos-grid">
-            <div class="blocks-logos-item">
+        <div class="b-logos-grid">
+            <div class="b-logos-item">
                 <a href="https://www.forbes.com/sites/jacobwolinsky/2025/09/09/new-tech-aids-fund-return-verification-as-sec-scrutiny-rises/" target="_blank" rel="noopener">
                     <img src="<?php echo esc_url(VBASE_URI . '/assets/images/forbes.webp'); ?>" alt="Forbes">
                 </a>
             </div>
-            <div class="blocks-logos-item">
+            <div class="b-logos-item">
                 <a href="https://hedgefundalpha.com/profile/fund-managers-verify-track-record/" target="_blank" rel="noopener">
                     <img src="<?php echo esc_url(VBASE_URI . '/assets/images/HedgeFundAlpha-BL-1.webp'); ?>" alt="Hedge Fund Alpha">
                 </a>
@@ -115,9 +112,9 @@ get_header();
     </div>
 </section>
 
-<section id="statistics" class="blocks-statistics">
+<section id="statistics" class="b-statistics">
     <div class="l-container">
-        <div class="blocks-statistics-content">
+        <div class="b-statistics-content">
             <span>500+ <?php esc_html_e('indices', 'vbase'); ?></span>
             <span class="separator">•</span>
             <span>100+ <?php esc_html_e('data providers', 'vbase'); ?></span>
@@ -129,33 +126,33 @@ get_header();
     </div>
 </section>
 
-<section id="trust-by-design" class="blocks-trust-by-design">
+<section id="trust-by-design" class="b-trust-by-design">
     <div class="l-container">
         <h3><?php esc_html_e('Trust and Security by Design', 'vbase'); ?></h3>
-        <div class="blocks-trust-by-design-block u-flex u-justify-between">
-            <div class="blocks-trust-by-design-block-item-left">
-                <div class="blocks-trust-by-design-block-item-img">
+        <div class="b-trust-by-design-block u-flex u-justify-between">
+            <div class="b-trust-by-design-block-item-left">
+                <div class="b-trust-by-design-block-item-img">
                     <img src="<?php echo esc_url(VBASE_URI . '/assets/images/vBase-diagram___-2-768x476.webp'); ?>" alt="<?php esc_attr_e('Trust and Security', 'vbase'); ?>">
                 </div>
             </div>
-            <div class="blocks-trust-by-design-block-item-right">
-                <div class="blocks-trust-by-design-block-item-title">
+            <div class="b-trust-by-design-block-item-right">
+                <div class="b-trust-by-design-block-item-title">
                     <?php esc_html_e('Design Implications', 'vbase'); ?>
                 </div>
-                <div class="blocks-trust-by-design-block-item-content">
-                    <div class="blocks-trust-by-design-block-item-content-item u-flex u-items-center">
+                <div class="b-trust-by-design-block-item-content">
+                    <div class="b-trust-by-design-block-item-content-item u-flex u-items-center">
                         <span class="u-flex u-justify-center u-items-center">1</span>
                         <p><?php esc_html_e('Instantly verifiable timestamps and integrity of historical data', 'vbase'); ?></p>
                     </div>
-                    <div class="blocks-trust-by-design-block-item-content-item u-flex u-items-center">
+                    <div class="b-trust-by-design-block-item-content-item u-flex u-items-center">
                         <span class="u-flex u-justify-center u-items-center">2</span>
                         <p><?php esc_html_e('Anyone can trust your historical data as if they saw it live', 'vbase'); ?></p>
                     </div>
-                    <div class="blocks-trust-by-design-block-item-content-item u-flex u-items-center">
+                    <div class="b-trust-by-design-block-item-content-item u-flex u-items-center">
                         <span class="u-flex u-justify-center u-items-center">3</span>
                         <p><?php esc_html_e('Your data stays private -- even from vBase', 'vbase'); ?></p>
                     </div>
-                    <div class="blocks-trust-by-design-block-item-content-item u-flex u-items-center">
+                    <div class="b-trust-by-design-block-item-content-item u-flex u-items-center">
                         <span class="u-flex u-justify-center u-items-center">4</span>
                         <p><?php esc_html_e('Compatible with all data types and pipelines', 'vbase'); ?></p>
                     </div>
@@ -190,7 +187,11 @@ get_header();
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
+<section class="section">
+    <div class="l-container">
         <div class="feature-panel feature-panel--reverse">
             <div class="feature-panel__content">
                 <div class="feature-panel__icon">
@@ -214,7 +215,11 @@ get_header();
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
+<section class="section">
+    <div class="l-container">
         <div class="feature-panel">
             <div class="feature-panel__content">
                 <div class="feature-panel__icon">
@@ -241,53 +246,56 @@ get_header();
     </div>
 </section>
 
+
 <?php
 // Blog posts section
 $recent_posts = get_posts([
-    'numberposts' => 8,
+    'numberposts' => 10,
     'post_status' => 'publish',
 ]);
 
 if ($recent_posts) :
 ?>
-<section id="blog" class="blocks-blog">
+<section id="blog" class="b-blog">
     <div class="l-container">
-        <div class="blocks-blog-title-nav u-flex u-justify-between u-items-center">
-            <div class="blocks-blog-title">
+        <div class="b-blog-title-nav u-flex u-justify-between u-items-center">
+            <div class="b-blog-title">
                 <h3><?php esc_html_e('Articles & Resources', 'vbase'); ?></h3>
             </div>
-            <div class="blocks-blog-nav u-flex">
-                <button class="blocks-blog-nav-button u-flex blocks-blog-nav-prev prev-js" aria-label="<?php esc_attr_e('Prev', 'vbase'); ?>">
+            <div class="b-blog-nav u-flex">
+                <button class="b-blog-nav-button u-flex b-blog-nav-prev prev-js" aria-label="<?php esc_attr_e('Prev', 'vbase'); ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
                         <use xlink:href="#next-prew"></use>
                     </svg>
                 </button>
-                <button class="blocks-blog-nav-button u-flex blocks-blog-nav-next next-js" aria-label="<?php esc_attr_e('Next', 'vbase'); ?>">
+                <button class="b-blog-nav-button u-flex b-blog-nav-next next-js" aria-label="<?php esc_attr_e('Next', 'vbase'); ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
                         <use xlink:href="#next-prew"></use>
                     </svg>
                 </button>
             </div>
         </div>
-        <div class="blocks-blog-slider">
-            <div class="blocks-blog-slider-slides slides-js u-flex recent">
+        <div class="b-blog-slider">
+            <div class="b-blog-slider-slides slides-js u-flex recent">
                 <?php foreach ($recent_posts as $post) : setup_postdata($post); ?>
                     <div class="recent-item slide-js">
                         <a href="<?php the_permalink(); ?>" aria-label="<?php the_title_attribute(); ?>">
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail('medium', ['class' => 'recent-item-img', 'loading' => 'lazy']); ?>
+                            <?php else : ?>
+                                <div class="recent-item-img"></div>
                             <?php endif; ?>
                         </a>
                         <a class="recent-item-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        <div class="recent-item-author u-flex u-items-center">
-                            <?php echo get_avatar(get_the_author_meta('ID'), 24, '', '', ['class' => 'avatar avatar-24 photo']); ?>
-                            <span><?php the_author(); ?></span>
-                        </div>
                         <div class="recent-item-categories u-flex u-flex-wrap">
                             <?php
                             $categories = get_the_category();
+                            $category_count = 0;
                             foreach ($categories as $category) {
-                                echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+                                if ($category_count < 2) { // Show max 2 categories
+                                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html(strtoupper($category->name)) . '</a>';
+                                    $category_count++;
+                                }
                             }
                             ?>
                         </div>
@@ -299,14 +307,14 @@ if ($recent_posts) :
 </section>
 <?php endif; ?>
 
-<section id="form" class="blocks-form">
+<section id="form" class="b-form">
     <div class="l-container">
-        <div class="blocks-form-block u-flex u-flex-wrap u-justify-center">
-            <svg class="blocks-form-block-svg" xmlns="http://www.w3.org/2000/svg" width="59.727" height="67.741" viewBox="0 0 59.727 67.741">
+        <div class="b-form-block u-flex u-flex-wrap u-justify-center">
+            <svg class="b-form-block-svg" xmlns="http://www.w3.org/2000/svg" width="59.727" height="67.741" viewBox="0 0 59.727 67.741">
                 <use xlink:href="#icon-form"></use>
             </svg>
-            <div class="blocks-form-block-text u-flex u-justify-center">
-                <div class="blocks-form-block-text-inner">
+            <div class="b-form-block-text u-flex u-justify-center">
+                <div class="b-form-block-text-inner">
                     <p><?php printf(esc_html__('Curious if %s can help supercharge your business?', 'vbase'), '<strong>validityBase</strong>'); ?></p>
                     <p><?php esc_html_e('We\'d love to give you a quick 15 minute demo & answer your questions.', 'vbase'); ?></p>
                 </div>
@@ -319,24 +327,24 @@ if ($recent_posts) :
     </div>
 </section>
 
-<section id="started" class="blocks-started">
+<section id="started" class="b-started">
     <div class="l-container">
-        <div class="blocks-started-block u-flex u-flex-wrap">
-            <div class="blocks-started-block-item blocks-started-block-left">
+        <div class="b-started-block u-flex u-flex-wrap">
+            <div class="b-started-block-item b-started-block-left">
                 <img src="<?php echo esc_url(VBASE_URI . '/assets/images/doc.svg'); ?>" alt="">
-                <div class="blocks-started-block-item-title"><?php esc_html_e('Read the Docs', 'vbase'); ?></div>
+                <div class="b-started-block-item-title"><?php esc_html_e('Read the Docs', 'vbase'); ?></div>
                 <p><?php esc_html_e('Learn more about vBase\'s capabilities', 'vbase'); ?></p>
-                <div class="blocks-started-block-item-buttons u-flex">
+                <div class="b-started-block-item-buttons u-flex">
                     <a class="button button--white with-arrow" target="_blank" href="https://docs.vbase.com/" rel="noopener">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
                     </a>
                 </div>
             </div>
-            <div class="blocks-started-block-item blocks-started-block-right">
+            <div class="b-started-block-item b-started-block-right">
                 <img src="<?php echo esc_url(VBASE_URI . '/assets/images/started.svg'); ?>" alt="">
-                <div class="blocks-started-block-item-title"><?php esc_html_e('Get Started', 'vbase'); ?></div>
+                <div class="b-started-block-item-title"><?php esc_html_e('Get Started', 'vbase'); ?></div>
                 <p><?php esc_html_e('Start using vBase tools and services', 'vbase'); ?></p>
-                <div class="blocks-started-block-item-buttons u-flex">
+                <div class="b-started-block-item-buttons u-flex">
                     <a class="button button--white with-arrow" href="https://app.vbase.com/" target="_blank" rel="noopener">
                         <?php esc_html_e('Begin Today', 'vbase'); ?>
                     </a>
