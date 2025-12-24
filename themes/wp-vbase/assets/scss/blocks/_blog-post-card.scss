@@ -1,0 +1,106 @@
+// Blog Post Card Styles
+@use '../mixins' as *;
+
+.blog-post-card {
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    display: block;
+    margin-bottom: var(--space-lg);
+    text-decoration: none;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    background-color: #f5f5f5;
+    transition: transform var(--transition-base);
+
+    &--placeholder {
+      background-color: #f5f5f5;
+      min-height: 200px;
+    }
+  }
+
+  &__link:hover &__image {
+    transform: scale(1.02);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 150%;
+    color: var(--color-black);
+    margin: 0 0 var(--space-md) 0;
+    font-family: var(--font-semibold);
+
+    @include respond-to('sm') {
+      font-size: 20px;
+    }
+
+    a {
+      color: var(--color-black);
+      text-decoration: none;
+      transition: color var(--transition-base);
+
+      &:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__excerpt {
+    font-size: 16px;
+    line-height: 170%;
+    color: var(--body);
+    margin: 0 0 var(--space-lg) 0;
+    flex: 1;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    border-radius: 4px;
+    margin-top: auto;
+  }
+}
+
+// Blog Tags
+.blog-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: var(--color-accent-bg);
+  color: var(--color-black);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+
+  &--small {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  &:hover {
+    background-color: var(--color-accent-bg);
+    color: var(--color-black);
+    text-decoration: none;
+  }
+}
+

@@ -6,10 +6,16 @@
     "compile:scss": "sass assets/scss/main.scss:assets/css/main.css --style=expanded",
     "build:main": "sass assets/scss/main.scss:assets/css/main.css --style=compressed && cleancss -o assets/css/main.min.css assets/css/main.css",
     "build:home": "sass assets/scss/pages/_home.scss:assets/css/home.css --style=compressed && cleancss -o assets/css/home.min.css assets/css/home.css",
-    "build:css": "npm run compile:scss && npm run build:main && npm run build:home",
+    "build:contact": "sass assets/scss/pages/_contact.scss:assets/css/contact.css --style=compressed && cleancss -o assets/css/contact.min.css assets/css/contact.css",
+    "build:pricing": "sass assets/scss/pages/_pricing.scss:assets/css/pricing.css --style=compressed && cleancss -o assets/css/pricing.min.css assets/css/pricing.css",
+    "build:about": "sass assets/scss/pages/_about.scss:assets/css/about.css --style=compressed && cleancss -o assets/css/about.min.css assets/css/about.css",
+    "build:demo": "sass assets/scss/demo.scss:assets/css/demo.css --style=compressed && cleancss -o assets/css/demo.min.css assets/css/demo.css",
+    "build:blog": "sass assets/scss/blog.scss:assets/css/blog.css --style=compressed && cleancss -o assets/css/blog.min.css assets/css/blog.css",
+    "build:version": "echo $(date +%s) > version.txt",
+    "build:css": "npm run compile:scss && npm run build:main && npm run build:home && npm run build:contact && npm run build:pricing && npm run build:about && npm run build:demo && npm run build:blog",
     "watch:scss": "sass --watch assets/scss/main.scss:assets/css/main.css --style=expanded",
     "watch:css": "nodemon --watch assets/css --ext css --ignore '*.min.css' --exec 'npm run build:main'",
-    "build": "npm run build:css"
+    "build": "npm run build:css && npm run build:version"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3",

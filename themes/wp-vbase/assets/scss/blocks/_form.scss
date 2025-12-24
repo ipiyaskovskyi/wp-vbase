@@ -1,0 +1,862 @@
+// Form Block Styles
+// Reusable form styles for contact and demo pages
+@use '../mixins' as *;
+@use '../utilities/flex' as *;
+
+// ============================================
+// Base Classes & Placeholders
+// ============================================
+
+// Base form input styles
+%form-input-base {
+  width: 100%;
+  padding: var(--space-xs) var(--space-md);
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: var(--color-black);
+  margin-bottom: var(--space-md);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+// Base form label
+%form-label-base {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin-bottom: var(--space-xs);
+
+  .required {
+    color: var(--color-error);
+  }
+}
+
+// Base form group
+%form-group-base {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+// Base form submit button
+%form-submit-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 14px 28px;
+  font-family: var(--font-medium);
+  font-size: var(--font-size-base);
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+}
+
+// Error message styles (reusable)
+%form-error-message {
+  display: block !important;
+  color: #dc3232;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  line-height: 1.4;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+// Form control wrap (reusable)
+%form-control-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+// Field paragraph base (reusable)
+%form-field-paragraph {
+  @extend %flex-column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  position: relative;
+  min-height: 40px; // Reserve space for error messages
+
+  p {
+    margin: 0;
+    position: relative;
+    min-height: 40px;
+  }
+
+  label {
+    @extend %form-label-base;
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='url'] {
+    @extend %form-input-base;
+    margin-bottom: 0;
+  }
+
+  textarea {
+    @extend %form-input-base;
+    margin-bottom: 0;
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+  }
+
+  .wpcf7-form-control-wrap {
+    @extend %form-control-wrap;
+  }
+
+  .wpcf7-not-valid-tip {
+    @extend %form-error-message;
+  }
+}
+
+// Half-width field responsive mixin
+@mixin half-width-field-responsive {
+  @include respond-to('sm') {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+// Half-width field base
+%half-width-field {
+  flex: 0 0 calc(50% - var(--space-md) / 2) !important;
+  width: calc(50% - var(--space-md) / 2) !important;
+  max-width: calc(50% - var(--space-md) / 2) !important;
+  box-sizing: border-box;
+  @include half-width-field-responsive;
+}
+
+// Full-width field base
+%full-width-field {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  margin-bottom: var(--space-md);
+  clear: both;
+}
+
+// Submit button arrow styles
+%submit-button-arrow {
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: transform var(--transition-base);
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+
+  &:hover::after {
+    transform: translateX(4px);
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='%231b3028' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+}
+
+// Button dark style (reusable)
+%button-dark-style {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  width: auto !important;
+  max-width: none !important;
+  display: inline-flex !important;
+  align-self: flex-start !important;
+
+  svg {
+    display: none !important;
+  }
+
+  @extend %submit-button-arrow;
+
+  &:hover {
+    background-color: var(--color-white) !important;
+    color: var(--color-primary) !important;
+  }
+}
+
+// ============================================
+// Form Styles
+// ============================================
+.contact-form,
+.demo-form {
+  @extend %flex-column;
+
+  br {
+    display: none;
+  }
+}
+
+.contact-form__row,
+.demo-form__row {
+  display: flex;
+  gap: var(--space-lg);
+
+  @include respond-to('sm') {
+    flex-direction: column;
+  }
+}
+
+.contact-form__group,
+.demo-form__group {
+  @extend %form-group-base;
+
+  &--half {
+    flex: 1;
+  }
+}
+
+.contact-form__label,
+.demo-form__label {
+  @extend %form-label-base;
+}
+
+.contact-form__input,
+.contact-form__textarea,
+.demo-form__input {
+  @extend %form-input-base;
+}
+
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.contact-form__actions,
+.demo-form__actions {
+  margin-top: var(--space-md);
+
+  .button {
+    width: 100%;
+    justify-content: center;
+    border-radius: 10px;
+  }
+}
+
+// ============================================
+// Contact Form 7 Base Styles
+// ============================================
+.contact-page .wpcf7-form,
+.demo-page .wpcf7-form {
+  @extend %flex-column;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: var(--space-md);
+
+  // Hide all br tags
+  br {
+    display: none !important;
+  }
+
+  // Reset default CF7 paragraph spacing
+  > p {
+    margin: 0;
+  }
+
+  // Base field paragraph styles
+  > p {
+    @extend %form-field-paragraph;
+  }
+
+  // First two fields in a single row (fallback - only if JS classes not present)
+  > p:nth-of-type(1):not(.contact-form__field):not(.demo-form__field),
+  > p:nth-of-type(2):not(.contact-form__field):not(.demo-form__field) {
+    @extend %flex-column;
+    gap: var(--space-sm);
+    flex: 1 1 0;
+    width: calc(50% - var(--space-md) / 2);
+    margin-bottom: var(--space-md);
+
+    @include respond-to('sm') {
+      width: 100%;
+    }
+  }
+
+  // Third field (Message/textarea) - full width (fallback)
+  > p:nth-of-type(3) {
+    width: 100%;
+    margin-bottom: var(--space-md);
+
+    p {
+      margin: 0;
+      position: relative;
+      min-height: 40px;
+    }
+
+    label {
+      @extend %form-label-base;
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    textarea {
+      @extend %form-input-base;
+      margin-bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .wpcf7-form-control-wrap {
+      @extend %form-control-wrap;
+    }
+
+    .wpcf7-not-valid-tip {
+      @extend %form-error-message;
+    }
+  }
+
+  // Responsive: stack in single column on mobile
+  @include respond-to('sm') {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Field groups
+  .contact-form__group,
+  .demo-form__group {
+    margin-bottom: var(--space-xl);
+  }
+
+  // Submit button with arrow
+  button[type='submit'],
+  input[type='submit'] {
+    @extend %submit-button-arrow;
+  }
+
+  // Hide CF7 default elements
+  .wpcf7-spinner {
+    display: none !important;
+  }
+
+  .wpcf7-response-output {
+    display: none !important;
+  }
+}
+
+// ============================================
+// Contact Form Specific Layout
+// ============================================
+.contact-page .wpcf7-form {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  column-gap: var(--space-md);
+  row-gap: 0;
+  margin-bottom: 0;
+
+  @include respond-to('sm') {
+    flex-direction: column !important;
+    column-gap: 0;
+  }
+
+  // Half-width fields (Name, Email) - side by side
+  > p.contact-form__field--half,
+  > p.contact-form__field--name,
+  > p.contact-form__field--email,
+  > p:nth-of-type(1):not(:has(textarea)):not(:has(button[type='submit'])):not(:has(input[type='submit'])),
+  > p:nth-of-type(2):not(:has(textarea)):not(:has(button[type='submit'])):not(:has(input[type='submit'])) {
+    @extend %half-width-field;
+  }
+
+  // Fallback for first paragraph (Name)
+  > p:nth-of-type(1):not(.contact-form__field) {
+    @extend %flex-column;
+    gap: var(--space-sm);
+    flex: 0 0 calc(50% - var(--space-md) / 2);
+    width: calc(50% - var(--space-md) / 2) !important;
+    margin-bottom: var(--space-xs);
+
+    > label:first-of-type {
+      display: block;
+    }
+
+    @include half-width-field-responsive;
+  }
+
+  // Special case: Paragraph containing both Email and Textarea
+  > p.contact-form__field--email-message {
+    @extend %full-width-field;
+    display: block;
+    
+    label:has(input[type='email']),
+    .contact-form__email-label {
+      display: block;
+      width: calc(50% - var(--space-md) / 2) !important;
+      margin-left: calc(50% + var(--space-md) / 2) !important;
+      margin-bottom: var(--space-sm);
+
+      @include respond-to('sm') {
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+    }
+    
+    label:has(textarea),
+    .contact-form__textarea-label {
+      display: block;
+      width: 100% !important;
+      clear: both;
+      margin-top: var(--space-sm);
+    }
+    
+    textarea {
+      width: 100% !important;
+      margin-left: 0 !important;
+      box-sizing: border-box;
+    }
+    
+    button[type='submit'] {
+      width: auto !important;
+      margin-top: var(--space-sm);
+      display: inline-block;
+      clear: both;
+    }
+  }
+
+  // Full-width fields (Message/textarea)
+  > p.contact-form__field--full-width:not(.contact-form__field--half):not(.contact-form__field--email):not(.contact-form__field--email-message),
+  > p:has(textarea):not(.contact-form__field--half):not(.contact-form__field--email) {
+    @extend %full-width-field;
+    
+    textarea {
+      width: 100% !important;
+      margin-left: 0 !important;
+      box-sizing: border-box;
+    }
+    
+    label {
+      width: 100% !important;
+    }
+  }
+
+  // If textarea is inside a half-width container, make the container full width
+  > p.contact-form__field--half:has(textarea),
+  > p.contact-form__field--email:has(textarea) {
+    @extend %full-width-field;
+    
+    textarea {
+      width: 100% !important;
+      margin-left: 0 !important;
+      box-sizing: border-box;
+    }
+    
+    label:has(textarea) {
+      width: 100% !important;
+    }
+  }
+
+  // Submit button container
+  > p.contact-form__field--submit,
+  > p.button-container {
+    @extend %full-width-field;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+
+    button[type='submit'],
+    input[type='submit'] {
+      width: auto !important;
+      max-width: none !important;
+      display: inline-flex !important;
+      align-self: flex-start !important;
+      margin: 0;
+
+      svg {
+        display: none !important;
+      }
+    }
+  }
+
+  // Fallback: Second paragraph (Email + Textarea + Button)
+  > p:nth-of-type(2):not(.contact-form__field) {
+    @extend %flex-column;
+    gap: var(--space-sm);
+    flex: 0 0 calc(50% - var(--space-md) / 2);
+    width: calc(50% - var(--space-md) / 2) !important;
+    margin-bottom: var(--space-xs);
+
+    @include half-width-field-responsive;
+
+    > label:first-of-type:not(:has(textarea)) {
+      display: block;
+    }
+
+    &:has(textarea) {
+      @extend %full-width-field;
+    }
+
+    label:has(textarea) {
+      display: block;
+      margin-top: var(--space-xs);
+      clear: both;
+      position: relative;
+      width: 100% !important;
+    }
+
+    textarea {
+      width: 100% !important;
+      margin-left: 0 !important;
+      box-sizing: border-box;
+    }
+
+    button[type='submit'] {
+      width: auto !important;
+      max-width: none !important;
+      display: inline-flex !important;
+      align-self: flex-start !important;
+      margin-left: 0 !important;
+      margin-top: var(--space-xs);
+      clear: both;
+      position: relative;
+    }
+
+    svg {
+      display: none !important;
+    }
+
+    @include respond-to('sm') {
+      flex: 0 0 100% !important;
+      width: 100% !important;
+
+      label:has(textarea) {
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+
+      textarea {
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+
+      button[type='submit'] {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  // Button dark style
+  button[type='submit'],
+  .button.button-dark {
+    @extend %button-dark-style;
+  }
+}
+
+// ============================================
+// Dataset Form Block Styles (Request a Demo)
+// ============================================
+.display-flex.dataset-form-block-fields:has(> .dataset-form-block-fields-item-one-col),
+.justify-content-space-between.dataset-form-block-fields:has(> .dataset-form-block-fields-item-one-col) {
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.dataset-form-block-fields {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+
+  @include respond-to('sm') {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: var(--space-md);
+  }
+
+  // Row 1: Full width field (Business Email)
+  &:has(> .dataset-form-block-fields-item-one-col:only-child),
+  &:has(> .dataset-form-block-fields-item-one-col) {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100% !important;
+  }
+
+  &-item-one-col {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    min-width: 100%;
+    max-width: 100%;
+
+    p {
+      margin: 0;
+      width: 100%;
+      position: relative;
+      min-height: 40px;
+    }
+
+    label {
+      @extend %form-label-base;
+      display: block;
+      margin-bottom: var(--space-xs);
+      width: 100%;
+    }
+
+    input {
+      @extend %form-input-base;
+      margin-bottom: 0;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .wpcf7-form-control-wrap {
+      @extend %form-control-wrap;
+    }
+
+    .wpcf7-not-valid-tip {
+      @extend %form-error-message;
+    }
+  }
+
+  // Row 2 & 3: Two columns
+  &-left,
+  &-right {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    @include respond-to('sm') {
+      width: 100%;
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &-item-field {
+    p {
+      margin: 0;
+      margin-bottom: var(--space-md);
+      position: relative;
+      min-height: 40px;
+
+      @include respond-to('sm') {
+        margin-bottom: var(--space-md);
+      }
+    }
+
+    &:last-child {
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    label {
+      @extend %form-label-base;
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    input:not([type='checkbox']) {
+      @extend %form-input-base;
+      margin-bottom: 0;
+    }
+
+    .wpcf7-form-control-wrap {
+      @extend %form-control-wrap;
+    }
+
+    .wpcf7-not-valid-tip {
+      @extend %form-error-message;
+    }
+  }
+}
+
+// ============================================
+// Demo Page Form Styles
+// ============================================
+.demo-page .wpcf7-form {
+  // Base styles for all demo form fields
+  > p.demo-form__field {
+    @extend %form-field-paragraph;
+  }
+
+  // Full-width fields
+  > p.demo-form__field--full-width {
+    @extend %full-width-field;
+  }
+
+  // Half-width fields
+  > p.demo-form__field--half {
+    flex: 1 1 0;
+    width: calc(50% - var(--space-md) / 2);
+    margin-bottom: var(--space-md);
+
+    @include half-width-field-responsive;
+  }
+
+  // Checkbox field
+  > p.demo-form__field--checkbox,
+  > .dataset-form-block-fields-item-field,
+  > p:has(input[type='checkbox']):not(.demo-form__field--checkbox) {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-xs);
+    padding-left: 0;
+    margin-left: 0;
+
+    p {
+      margin: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+      margin-left: 0;
+
+      label {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: var(--space-sm);
+        cursor: pointer;
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-base);
+        color: var(--text-primary);
+        margin-bottom: 0;
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: normal;
+        width: 100%;
+
+        input[type='checkbox'] {
+          width: 20px;
+          height: 20px;
+          margin-top: 2px;
+          margin-left: 0;
+          padding-left: 0;
+          cursor: pointer;
+          flex-shrink: 0;
+          accent-color: var(--color-primary);
+          margin-bottom: 0;
+        }
+
+        .wpcf7-list-item-label {
+          flex: 1;
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  // Submit button container
+  > p.demo-form__field--submit,
+  > p.button-container {
+    @extend %full-width-field;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+
+    button[type='submit'],
+    input[type='submit'] {
+      margin: 0;
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  // Error message positioning
+  .wpcf7-form-control-wrap {
+    @extend %form-control-wrap;
+  }
+
+  .wpcf7-not-valid-tip {
+    @extend %form-error-message;
+  }
+
+  .wpcf7-list-item {
+    margin: 0;
+  }
+
+  .dataset-form-block-fields {
+    .dataset-form-block-fields-item-field {
+      margin-bottom: var(--space-xs);
+    }
+  }
+
+  // Target paragraph containing submit button
+  p {
+    &:has(button[type='submit']) {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: var(--space-md);
+      margin-bottom: 0;
+    }
+
+    input[type='email'],
+    input[type='text'] {
+      margin-bottom: 0;
+    }
+
+    button[type='submit'],
+    .button.button-dark {
+      margin: 0;
+    }
+  }
+
+  // Button dark style
+  button[type='submit'].button-dark,
+  .button.button-dark {
+    @extend %button-dark-style;
+  }
+
+  // ReCAPTCHA styling
+  p:has([recaptcha]) {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  // Fallback button container
+  p.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,141 @@
+// Pagination Styles
+@use '../mixins' as *;
+
+// Common pagination wrapper styles - used across blog, search, category, and single pages
+.b-pagination {
+  margin: var(--space-4xl) auto 0;
+  padding-top: var(--space-4xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+
+  @include respond-to('md') {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-3xl);
+  }
+
+  @include respond-to('sm') {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-2xl);
+  }
+}
+
+// Global pagination wrapper (for WordPress default pagination)
+.pagination,
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: var(--space-4xl) auto 0;
+  padding: var(--space-4xl) 0 0;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+
+  @include respond-to('md') {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-3xl);
+  }
+
+  @include respond-to('sm') {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-2xl);
+    gap: var(--space-xxs);
+  }
+}
+
+// Page numbers - WordPress paginate_links() generates direct links/spans with .page-numbers class
+.nav-links .page-numbers,
+.pagination .page-numbers,
+.page-numbers {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 var(--space-sm);
+  font-family: var(--font-medium);
+  font-size: var(--font-size-base);
+  line-height: 1;
+  margin: 0 var(--space-xs);
+  color: var(--color-black) !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: 1px solid transparent !important;
+  border-radius: 50%;
+  background-color: transparent !important;
+  transition: background-color var(--transition-base), color var(--transition-base);
+
+  @include respond-to('sm') {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 var(--space-xs);
+    font-size: var(--font-size-sm);
+  }
+
+  &:hover {
+    background-color: var(--color-primary) !important;
+    border-bottom-color: transparent !important;
+    color: var(--color-white) !important;
+    text-decoration: none !important;
+  }
+
+  // Current/active page
+  &.current {
+    background-color: var(--color-primary) !important;
+    border-bottom-color: transparent !important;
+    color: var(--color-white) !important;
+    cursor: default;
+    font-weight: 600;
+
+    &:hover {
+      background-color: var(--color-primary) !important;
+      border-bottom-color: transparent !important;
+      color: var(--color-white) !important;
+    }
+  }
+
+  // Previous/Next buttons
+  &.prev,
+  &.next {
+    padding: 0 var(--space-md);
+    font-weight: 500;
+
+    @include respond-to('sm') {
+      padding: 0 var(--space-sm);
+    }
+
+    .screen-reader-text {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    span[aria-hidden="true"] {
+      font-size: var(--font-size-lg);
+      line-height: 1;
+    }
+  }
+
+  // Dots (ellipsis)
+  &.dots {
+    color: var(--color-gray-medium);
+    cursor: default;
+    border-bottom: none;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+}

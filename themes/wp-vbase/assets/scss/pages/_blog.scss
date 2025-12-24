@@ -1,0 +1,483 @@
+// Blog Page Styles
+@use '../mixins' as *;
+
+.blog-page {
+  padding: var(--space-xl) 0;
+  background-color: var(--color-white);
+}
+
+// Breadcrumb - uses styles from blocks/_breadcrumb.scss
+// Additional blog-specific styles can be added here if needed
+
+// Blog Header
+.blog-header {
+  margin-bottom: var(--space-xl);
+  align-items: center;
+  gap: var(--space-xl);
+
+  @include respond-to('md') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+}
+
+// Page title styles are now in blocks/_page-title.scss
+
+.blog-search {
+  .search-field {
+    width: 300px;
+
+    @include respond-to('md') {
+      width: 100%;
+    }
+  }
+}
+
+.single-search {
+  label {
+    width: 100%;
+  }
+}
+
+// Featured Article
+.blog-featured {
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  align-items: stretch;
+  background-color: var(--color-accent-bg);
+  padding: var(--space-2xl);
+  border-radius: 8px;
+
+  @include respond-to('md') {
+    flex-direction: column;
+    gap: var(--space-3xl);
+    padding: var(--space-3xl);
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-2xl);
+  }
+
+  &__image {
+    flex: 0 0 50%;
+    max-width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f5f5f5;
+    align-self: stretch;
+    min-height: 100%;
+
+    @include respond-to('md') {
+      flex: 0 0 100%;
+      max-width: 100%;
+      min-height: 300px;
+      aspect-ratio: 16 / 9;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--placeholder {
+      background-color: #f5f5f5;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    border-radius: 4px;
+    margin-bottom: var(--space-lg);
+  }
+
+  &__title {
+    font-size: 38px;
+    line-height: 1.25;
+    color: var(--color-black);
+    margin: 0 0 var(--space-md) 0;
+    font-family: var(--font-bold);
+
+    @include respond-to('md') {
+      font-size: 32px;
+    }
+
+    @include respond-to('sm') {
+      font-size: 28px;
+    }
+
+    a {
+      color: var(--color-black);
+      text-decoration: none;
+      transition: color var(--transition-base);
+
+      &:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__excerpt {
+    font-size: 18px;
+    line-height: 170%;
+    color: var(--body);
+    margin: 0 0 var(--space-xl) 0;
+    flex: 1;
+  }
+
+  &__link {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+}
+
+// Newsletter Section
+.blog-newsletter {
+  background-color: var(--color-primary);
+  padding: var(--space-3xl) var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  color: var(--color-white);
+
+  @include respond-to('sm') {
+    padding: var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  &__content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 170%;
+    margin: 0 0 var(--space-xl) 0;
+    color: var(--color-white);
+  }
+
+  &__form {
+    display: flex;
+    gap: var(--space-sm);
+    max-width: 500px;
+    margin: 0 auto;
+
+    @include respond-to('sm') {
+      flex-direction: column;
+    }
+  }
+
+  &__form-group {
+    display: flex;
+    gap: var(--space-sm);
+    flex: 1;
+    width: 100%;
+
+    @include respond-to('sm') {
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid var(--color-gray-light);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    font-size: 16px;
+    border-radius: 4px;
+    transition: border-color var(--transition-base), background-color var(--transition-base);
+
+    &::placeholder {
+      color: var(--color-gray-light);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-gray-medium);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__submit {
+    padding: 14px 24px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid var(--color-gray-border);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: background-color var(--transition-base), transform var(--transition-base);
+    white-space: nowrap;
+    border-radius: 4px;
+
+    @include respond-to('sm') {
+      width: 100%;
+      justify-content: center;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-black);
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.95);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Contact Form 7 styles for blog newsletter
+  .wpcf7-form {
+    max-width: 500px;
+    margin: 0 auto;
+
+    @include respond-to('sm') {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    > p {
+      display: flex;
+      gap: var(--space-sm);
+      margin: 0;
+      align-items: flex-start;
+
+      @include respond-to('sm') {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      > br {
+        display: none;
+      }
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+
+    @include respond-to('sm') {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  .blog-form-block-input,
+  input.wpcf7-form-control,
+  input[type="email"],
+  input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 16px;
+    border-radius: 4px;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    font-family: inherit;
+
+    @include respond-to('sm') {
+      max-width: 100%;
+    }
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .blog-form-block-submit,
+  button.button-dark,
+  input[type="submit"],
+  button[type="submit"],
+  .wpcf7-submit {
+    padding: 14px 24px;
+    background-color: var(--color-accent-orange) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    transition: background-color var(--transition-base), transform var(--transition-base);
+    white-space: nowrap;
+    border-radius: 4px;
+    font-family: inherit;
+    position: relative;
+
+    @include respond-to('sm') {
+      width: 100%;
+    }
+
+    // Hide SVG elements inside button
+    svg,
+    .button-icon {
+      display: none !important;
+    }
+
+    // Add arrow for buttons with with-arrow class
+    &.with-arrow {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: transform var(--transition-base);
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+
+      &:hover::after {
+        transform: translateX(4px);
+      }
+    }
+
+    &:hover {
+      background-color: #e6440f !important;
+      transform: translateY(-1px);
+      color: var(--color-white) !important;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Error and validation messages
+  .wpcf7-not-valid-tip,
+  .wpcf7-validation-errors,
+  .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+    display: block;
+    color: #dc3232;
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: left;
+    line-height: 1.4;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+
+    @include respond-to('sm') {
+      position: relative;
+      top: auto;
+      left: auto;
+      white-space: normal;
+    }
+  }
+
+  .wpcf7-response-output {
+    display: none !important;
+  }
+}
+
+// Blog Posts Grid
+.blog-posts {
+  margin: var(--space-xl) 0;
+
+  @include respond-to('sm') {
+    margin: var(--space-lg) 0;
+  }
+
+  .b-page-title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-black);
+    margin: 0;
+    font-family: var(--font-base);
+  }
+
+  &__title {
+    font-size: 38px;
+    line-height: 150%;
+    color: var(--color-black);
+    margin: 0 0 var(--space-lg) 0;
+    font-family: var(--font-bold);
+
+    @include respond-to('md') {
+      font-size: 32px;
+      margin-bottom: var(--space-3xl);
+    }
+
+    @include respond-to('sm') {
+      font-size: 28px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3xl) var(--space-xl);
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2xl) var(--space-lg);
+    }
+
+    @include respond-to('sm') {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  // Pagination styles are now in blocks/_pagination.scss
+  // Pagination styles are now in blocks/_pagination.scss
+  // Using common wrapper class: .b-pagination
+}
+
+// Blog Post Card
+// Blog post card styles are now in blocks/_blog-post-card.scss
+
+// No Posts
+.no-posts {
+  text-align: center;
+  padding: var(--space-4xl) 0;
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: var(--space-md);
+    color: var(--color-black);
+  }
+
+  p {
+    font-size: 18px;
+    color: var(--text-muted);
+  }
+}
+

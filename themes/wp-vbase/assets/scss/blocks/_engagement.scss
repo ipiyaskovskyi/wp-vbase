@@ -1,0 +1,366 @@
+@use '../mixins' as *;
+
+// ============================================
+// Engagement Section Block
+// Reusable block for engagement/CTA sections with forms
+// Used on pricing and about pages
+// ============================================
+
+.b-engagement {
+  text-align: center;
+  padding: var(--space-xl) 0;
+
+  @include respond-to('md') {
+    padding: var(--space-lg) 0;
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0 0;
+  }
+}
+
+.b-engagement__title {
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  color: var(--color-black);
+  margin: 0 0 var(--space-lg);
+
+  @include respond-to('sm') {
+    font-size: var(--h3-size);
+    margin-bottom: var(--space-xl);
+  }
+}
+
+.b-engagement__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+
+  @include respond-to('sm') {
+    flex-direction: column;
+    gap: var(--space-md);
+
+    .button {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.b-engagement__divider {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+}
+
+// ============================================
+// Form Styles
+// ============================================
+.b-engagement__form,
+.b-engagement__demo-form {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+
+  @include respond-to('sm') {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+    width: 100%;
+  }
+}
+
+.b-engagement__demo-input {
+  padding: 10px 16px;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  border: 1px solid rgba(112, 112, 112, 0.5);
+  border-radius: 4px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  min-width: 250px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  @include respond-to('sm') {
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+.b-engagement__demo-form {
+  .button {
+    @include respond-to('sm') {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+// ============================================
+// Contact Form 7 Styles
+// ============================================
+.b-engagement .wpcf7-form {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+
+  @include respond-to('sm') {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+    width: 100%;
+  }
+
+  .wpcf7-spinner {
+    display: none;
+  }
+
+  .wpcf7-response-output {
+    display: none !important;
+  }
+
+  > p {
+    margin: 0;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    gap: var(--space-sm);
+
+    @include respond-to('sm') {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      gap: var(--space-md);
+      align-self: stretch;
+    }
+
+    .wpcf7-spinner {
+        display: none;
+    }
+  }
+
+  // Input wrapper styling
+  .wpcf7-form-control-wrap {
+    font-size: var(--font-size-base);
+    position: relative;
+    min-width: 250px;
+    display: inline-block;
+    flex-shrink: 0;
+
+    @include respond-to('sm') {
+      width: 100%;
+      min-width: auto;
+      display: block;
+    }
+
+    // Error message styling - positioned absolutely so it doesn't affect layout
+    .wpcf7-not-valid-tip {
+      display: block !important;
+      color: #dc3232;
+      font-size: 12px;
+      margin-top: 4px;
+      line-height: 1.4;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      white-space: nowrap;
+      z-index: 1;
+
+      @include respond-to('sm') {
+        position: relative;
+        top: auto;
+        left: auto;
+        white-space: normal;
+        text-align: left;
+      }
+    }
+  }
+
+  br {
+    display: none !important;
+  }
+
+  input[type='email'],
+  input.blocks-form-block-input,
+  input.form-input {
+    padding: 10px 16px;
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    border: 1px solid rgba(112, 112, 112, 0.5);
+    border-radius: 4px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    width: 100%;
+    min-width: 250px;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+    @include respond-to('sm') {
+      width: 100%;
+      min-width: auto;
+      max-width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+  }
+
+  input[type='submit'],
+  button[type='submit'],
+  .wpcf7-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: 14px 28px;
+    font-family: var(--font-medium);
+    font-size: var(--font-size-base);
+    line-height: 1.2;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    align-self: center;
+    white-space: nowrap;
+    position: relative;
+
+    // Hide SVG elements inside button
+    svg {
+      display: none !important;
+    }
+
+    // Add arrow after button text
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: transform var(--transition-base);
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+
+    @include respond-to('sm') {
+      width: 100%;
+      max-width: 100%;
+      align-self: stretch;
+    }
+
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      text-decoration: none;
+
+      &::after {
+        transform: translateX(4px);
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='%231b3028' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+    }
+
+    // If button has button--dark class, ensure it uses dark styles
+    &.button--dark {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-white);
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+
+      &:hover {
+        background-color: var(--color-white);
+        color: var(--color-primary);
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.33334 8H12.6667M12.6667 8L8.66667 4M12.6667 8L8.66667 12' stroke='%231b3028' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+      }
+    }
+  }
+
+  // Keep response output hidden (general form messages)
+  .wpcf7-response-output {
+    display: none !important;
+  }
+}
+
+// Fallback form styles with error message
+.b-engagement__demo-form {
+  align-items: center; // Align button with input center
+
+  // Input wrapper for error message
+  .input-wrapper {
+    position: relative;
+    min-width: 250px;
+
+    @include respond-to('sm') {
+      width: 100%;
+      min-width: auto;
+    }
+
+    .b-engagement__demo-input {
+      width: 100%;
+    }
+  }
+
+  // Custom error message
+  .input-error-message {
+    display: block;
+    color: #dc3232;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    line-height: 1.4;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+
+    @include respond-to('sm') {
+      position: relative;
+      top: auto;
+      left: auto;
+      white-space: normal;
+    }
+  }
+
+  .button {
+    align-self: center;
+
+    @include respond-to('sm') {
+      align-self: stretch;
+      width: 100%;
+    }
+  }
+}
+

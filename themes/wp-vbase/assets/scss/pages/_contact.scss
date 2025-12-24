@@ -1,0 +1,147 @@
+// Contact Page Styles
+@use '../mixins' as *;
+@use '../utilities/flex' as *;
+
+// ============================================
+// Variables
+// ============================================
+$contact-card-padding: var(--space-2xl);
+$contact-card-padding-sm: var(--space-xl);
+$contact-card-border-radius: 8px;
+$contact-form-bg: #f0f1f1;
+
+// ============================================
+// Base Classes & Placeholders
+// ============================================
+
+// Base responsive width
+%responsive-width {
+  @include respond-to('md') {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+// Base card container
+%card-container {
+  padding: $contact-card-padding;
+  border-radius: $contact-card-border-radius;
+
+  @include respond-to('sm') {
+    padding: $contact-card-padding-sm;
+  }
+}
+
+// Base link styles
+%link-primary {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
+
+// ============================================
+// Main Container
+// ============================================
+.contact-page {
+  padding: var(--space-xl) 0;
+
+  @include respond-to('md') {
+    padding: var(--space-lg) 0;
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0;
+  }
+}
+
+// ============================================
+// Contact Card
+// ============================================
+.contact-page__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  margin: 0 auto;
+
+  @include respond-to('md') {
+    padding: $contact-card-padding;
+  }
+
+  @include respond-to('sm') {
+    padding: 0;
+  }
+}
+
+.contact-page__title {
+  font-size: var(--h1-size);
+  margin: var(--space-4xl) 0 var(--space-lg);
+
+  @include respond-to('sm') {
+    margin: var(--space-lg) 0 var(--space-lg);
+  }
+}
+
+// ============================================
+// Contact Info Section
+// ============================================
+.contact-page__info {
+  flex: 1;
+  max-width: 420px;
+  @extend %responsive-width;
+}
+
+.contact-info {
+  @extend %flex-column;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+.contact-info__label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin-bottom: var(--space-xs);
+}
+
+.contact-info__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+
+  a {
+    @extend %link-primary;
+  }
+}
+
+.contact-info__block {
+  @extend %flex-column;
+  gap: var(--space-xs);
+}
+
+// ============================================
+// Contact Form Section
+// ============================================
+.contact-page__form-wrapper {
+  flex: 1;
+  @extend %responsive-width;
+}
+
+.contact-form-card {
+  @extend %card-container;
+  background-color: $contact-form-bg;
+}
+
+// ============================================
+// Additional Content
+// ============================================
+.contact-page__additional {
+  margin-top: var(--space-4xl);
+}

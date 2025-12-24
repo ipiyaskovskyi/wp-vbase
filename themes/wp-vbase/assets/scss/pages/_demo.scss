@@ -1,0 +1,175 @@
+// Demo Request Page Styles
+@use '../mixins' as *;
+
+// ============================================
+// Variables
+// ============================================
+$demo-card-padding: var(--space-2xl);
+$demo-card-padding-sm: var(--space-xl);
+$demo-card-border-radius: 8px;
+$demo-form-bg: #f0f1f1;
+$demo-bg-light: #f0f1f1;
+
+
+// ============================================
+// Main Container
+// ============================================
+.demo-page {
+  padding: var(--space-xl) 0;
+
+  @include respond-to('md') {
+    padding: var(--space-lg) 0;
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0;
+  }
+}
+
+// ============================================
+// Demo Card (same structure as contact)
+// ============================================
+.demo-page__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  margin: 0 auto;
+
+  @include respond-to('md') {
+    padding: $demo-card-padding;
+  }
+
+  @include respond-to('sm') {
+    padding: 0;
+  }
+}
+
+// ============================================
+// Content Section (Left Column)
+// ============================================
+.demo-page__info {
+  flex: 1;
+  max-width: 420px;
+  padding-top: var(--space-4xl);
+
+  @include respond-to('md') {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.demo-page__title {
+  font-size: var(--h1-size);
+  margin: 0 0 var(--space-lg);
+
+  @include respond-to('sm') {
+    margin: 0 0 var(--space-lg);
+  }
+}
+
+.demo-page__badge {
+  display: block;
+  font-family: Manrope, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+  font-weight: 400;
+  position: relative;
+  padding-left: var(--space-md);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+}
+}
+
+.demo-page__description {
+  font-size: 16px;
+  line-height: 170%;
+  color: var(--body);
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  font-weight: 400;
+  max-width: 600px;
+
+  @include respond-to('md') {
+    max-width: 100%;
+    margin-bottom: var(--space-xl);
+    font-size: 17px;
+  }
+
+  @include respond-to('sm') {
+    font-size: 16px;
+  }
+}
+
+// ============================================
+// Form Section (Right Column)
+// ============================================
+.demo-page__form-wrapper {
+  flex: 1;
+
+  @include respond-to('md') {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.demo-form-card {
+  padding: $demo-card-padding;
+  border-radius: $demo-card-border-radius;
+  background-color: $demo-form-bg;
+
+  @include respond-to('sm') {
+    padding: $demo-card-padding-sm;
+  }
+}
+
+
+// ============================================
+// Checkbox Styles
+// ============================================
+.demo-form__checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  cursor: pointer;
+  margin-bottom: var(--space-md);
+}
+
+.demo-form__checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+}
+
+.demo-form__checkbox-text {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+}
+
+// ============================================
+// Form Actions - using contact-form__actions
+// ============================================
+
+.button-arrow {
+  margin-left: var(--space-xs);
+  font-size: var(--font-size-lg);
+}
+
+
+

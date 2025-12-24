@@ -59,7 +59,7 @@
     </symbol>
 </svg>
 
-<header role="banner">
+<header class="site-header" role="banner">
     <div class="l-container">
         <div class="header u-flex u-justify-between u-items-center">
             <div class="header__brand">
@@ -73,7 +73,7 @@
             </div>
             <div class="header__nav-wrapper u-flex">
                 <nav class="header__nav u-flex u-items-center" role="navigation" aria-label="<?php esc_attr_e('Primary Menu', 'vbase'); ?>">
-                    <ul class="header__menu u-flex">
+                    <ul id="primary-menu" class="header__menu u-flex">
                         <?php
                         wp_nav_menu([
                             'theme_location' => 'primary',
@@ -88,12 +88,21 @@
                         ?>
                     </ul>
                     <div class="header__actions u-flex">
-                        <a class="button button--dark u-flex u-items-center" target="_blank" href="https://app.vbase.com/">
+                        <a class="button button--dark with-arrow u-flex u-items-center" target="_blank" href="https://app.vbase.com/">
                             <?php esc_html_e('Try The App', 'vbase'); ?>
+                        </a>
+                        <a class="button button--white u-flex u-items-center" href="<?php echo esc_url(home_url('/contact/')); ?>">
+                            <?php esc_html_e('Talk To Us', 'vbase'); ?>
                         </a>
                     </div>
                 </nav>
-                <button class="header__mobile-toggle" aria-label="<?php esc_attr_e('Menu', 'vbase'); ?>">
+                <button
+                    class="header__mobile-toggle"
+                    type="button"
+                    aria-label="<?php esc_attr_e('Menu', 'vbase'); ?>"
+                    aria-controls="primary-menu"
+                    aria-expanded="false"
+                >
                     <div class="header__mobile-icon">
                         <span></span>
                         <span></span>

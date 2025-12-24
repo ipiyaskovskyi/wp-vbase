@@ -1,9 +1,21 @@
 @use '../mixins' as *;
 
 
-header {
+.site-header {
   background-color: var(--bg-secondary);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: box-shadow var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &.scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .header {
@@ -13,11 +25,6 @@ header {
   @include respond-to('md') {
     padding-top: var(--space-sm);
     padding-bottom: var(--space-sm);
-  }
-
-  @include respond-to('sm') {
-    padding-top: var(--space-xs);
-    padding-bottom: var(--space-xs);
   }
 
   &__brand {
@@ -138,7 +145,7 @@ header {
     @include respond-to('sm') {
       margin-left: 0;
       font-size: var(--font-size-lg);
-      padding: var(--space-sm) 0;
+      padding: 0;
     }
 
     &::after {

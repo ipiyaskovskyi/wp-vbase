@@ -1,5 +1,29 @@
 @use '../mixins' as *;
 
+// Make header transparent on front page to show hero background
+body.home header,
+body.page-template-front-page header,
+body.front-page header {
+  background-color: transparent;
+  border-bottom: none;
+  box-shadow: none;
+
+  &.scrolled {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Extend hero background to cover header area
+body.home .hero,
+body.page-template-front-page .hero,
+body.front-page .hero {
+  // Header is now fixed, adjust hero to account for it
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: calc(var(--header-height) + var(--space-xs));
+}
+
 
 @keyframes fadeIn {
   from {
@@ -49,8 +73,7 @@
 
 .hero {
   background: var(--bg-secondary) url('../../assets/images/hero-bg.svg') center / cover no-repeat;
-  padding: 0 var(--container-padding) var(--space-xl);
-  // min-height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--logos-height));
   max-height: 900px;
   display: flex;
   flex-direction: column;
@@ -61,23 +84,7 @@
     line-height: 120%;
     margin-bottom: var(--space-md);
     margin-top: 0;
-
-    strong {
-      color: var(--color-primary);
-      position: relative;
-      
-      // Add subtle colored underline accent
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(to right, var(--color-accent), var(--color-accent-blue));
-        opacity: 0.6;
-      }
-    }
+    color: var(--color-primary);
 
     @include respond-to('md') {
       font-size: 38px;
@@ -104,14 +111,18 @@
     }
   }
 
-  @include respond-to('sm') {
-    padding: 0 var(--container-padding) var(--space-lg);
-    // min-height: calc(100vh - var(--header-height));
-    max-height: none;
-  }
-
   @include respond-to('4k') {
     min-height: auto;
+  }
+
+  @include respond-to('lg') {
+    min-height: auto;
+  }
+
+  @include respond-to('sm') {
+    padding: 0 0 var(--space-lg);
+    min-height: auto;
+    max-height: 100%;
   }
 }
 
@@ -122,16 +133,15 @@
 
   @include respond-to('md') {
     flex-direction: row;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
     align-items: center;
   }
 
   @include respond-to('sm') {
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-xs);
     align-items: flex-start;
     min-height: auto;
-    padding: var(--space-2xl) 0;
   }
 }
 
@@ -142,6 +152,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: var(--space-2xl);
+
+  @include respond-to('sm') {
+    padding-top: var(--space-xs);
+  }
 
   h1 {
     animation: fadeIn 0.6s ease-out 0.1s forwards;
@@ -167,10 +182,6 @@
     opacity: 0;
     align-self: flex-start;
     width: auto;
-
-    @include respond-to('md') {
-      margin-top: var(--space-lg);
-    }
 
     @include respond-to('sm') {
       margin-top: var(--space-lg);
@@ -220,7 +231,7 @@
   transform: translateY(40px);
 
   img {
-    max-width: 55%;
+    max-width: 68%;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -243,6 +254,7 @@
     order: -1;
     width: 100%;
     justify-content: flex-start;
+    padding-top: 10px;
 
     img {
       max-width: 100%;
@@ -254,7 +266,7 @@
 .hero__bottom {
   animation: fadeIn 0.6s ease-out 0.5s forwards;
   opacity: 0;
-  // padding: var(--space-xs) 0;
+  padding: var(--space-lg) 0;
 }
 
 .hero__bottom-title {
@@ -283,6 +295,7 @@
 .hero__bottom-item {
   background-color: var(--color-white);
   padding: var(--space-md);
+  padding-bottom: 45px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -293,6 +306,10 @@
   transition: all var(--transition-base);
   cursor: pointer;
   text-decoration: none;
+
+  @include respond-to('sm') {
+    padding-bottom: 60px;
+  }
 
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
@@ -412,11 +429,11 @@
 
 
 .b-logos {
-  padding: var(--space-sm) 0;
+  padding: var(--space-lg) 0;
 
   &-title {
     text-align: center;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 
     p {
       font-family: Manrope, sans-serif;
@@ -426,6 +443,7 @@
       color: var(--text-muted);
       font-weight: 400;
       margin-top: 5px;
+      margin-bottom: 5px;
     }
 
     @include respond-to('md') {
@@ -458,11 +476,11 @@
     align-items: center;
     justify-content: flex-start;
     transition: opacity var(--transition-base), transform var(--transition-base);
-    padding: 0 var(--space-xl);
+    padding: var(--space-xs) var(--space-lg);
     position: relative;
 
     @include respond-to('md') {
-      padding: 0 var(--space-xl);
+      padding: var(--space-xs) var(--space-md);
 
       &:not(:last-child)::after {
         height: 18px;
@@ -496,8 +514,8 @@
     }
 
     img {
-      max-width: 100px;
-      max-height: 30px;
+      max-width: 130px;
+      max-height: 45px;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -521,8 +539,8 @@
 
     @include respond-to('sm') {
       img {
-        max-width: 80px;
-        max-height: 35px;
+        max-width: 120px;
+        max-height: auto;
       }
     }
   }
@@ -544,35 +562,12 @@
   }
 
   @include respond-to('sm') {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-lg) 0;
   }
 }
-
-// Animation only for logos inside hero section
-.hero .b-logos {
-  &-title {
-    animation: fadeIn 0.6s ease-out 0.5s forwards;
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  &-item {
-    animation: fadeInLogo 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
-
-    // Staggered animation for each logo
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{0.6 + $i * 0.1}s;
-      }
-    }
-  }
-}
-
 
 .b-statistics {
-  padding: var(--space-xs) 0;
+  padding: var(--space-lg) 0;
   background-color: var(--color-white);
   text-align: center;
 
@@ -626,6 +621,10 @@
   padding: var(--space-xl) 0;
   background-color: var(--color-white);
 
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0;
+  }
+
   h3 {
     font-size: 38px;
     line-height: 150%;
@@ -667,7 +666,7 @@
 
   &-block-item-left {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     flex: 0 0 60%;
     max-width: 60%;
@@ -695,6 +694,11 @@
     width: 100%;
     max-width: 100%;
     padding: var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 100%;
 
     img {
       width: 100%;
@@ -772,219 +776,7 @@
 }
 
 
-.section {
-  padding: var(--space-xl) 0;
-  background-color: var(--color-white);
-}
-
-.feature-panel {
-  display: flex;
-  align-items: stretch;
-  gap: var(--space-4xl);
-  padding-bottom: var(--space-xl);
-
-  &:last-child {
-    padding-bottom: 0;
-  }
-
-  &--reverse {
-    flex-direction: row-reverse;
-
-    @include respond-to('md') {
-      flex-direction: column;
-    }
-  }
-
-  &__content {
-    flex: 1;
-    max-width: 50%;
-  }
-
-  &__icon {
-    margin-bottom: var(--space-lg);
-    margin-top: var(--space-md);
-
-    img {
-      width: 48px;
-      height: auto;
-      display: block;
-    }
-  }
-
-  &__label {
-    display: block;
-    font-family: Manrope, sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    margin-bottom: var(--space-md);
-    font-weight: 400;
-    position: relative;
-    padding-left: var(--space-md);
-    
-    // Add subtle colored dot before label
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--color-accent);
-    }
-  }
-  
-  // Vary label dot color by item
-  &:nth-child(1) &__label::before {
-    background-color: var(--color-accent);
-  }
-  
-  &:nth-child(2) &__label::before {
-    background-color: var(--color-accent-blue);
-  }
-  
-  &:nth-child(3) &__label::before {
-    background-color: var(--color-accent-coral);
-  }
-  
-  &:nth-child(4) &__label::before {
-    background-color: var(--color-accent-purple);
-  }
-
-  &__title {
-    font-size: 38px;
-    line-height: 150%;
-    color: var(--title);
-    margin-bottom: var(--space-lg);
-  }
-
-  &__desc {
-    font-size: 16px;
-    line-height: 170%;
-    color: var(--body);
-    margin-bottom: var(--space-lg);
-    font-weight: 400;
-  }
-
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-xl) 0;
-
-    li {
-      font-size: 16px;
-      line-height: 170%;
-      color: var(--body);
-      margin-bottom: var(--space-md);
-      padding-left: 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      strong {
-        color: var(--title);
-      }
-    }
-  }
-
-  &__buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    margin-bottom: var(--space-md);
-    align-items: center;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__image {
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-  }
-
-  &__image-wrapper {
-    position: relative;
-    background-color: var(--color-accent-light);
-    width: 100%;
-    max-width: 580px;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      display: block;
-      object-fit: contain;
-    }
-  }
-
-  @include respond-to('md') {
-    flex-direction: column-reverse;
-    gap: var(--space-3xl);
-    padding-bottom: var(--space-xl);
-
-    &__content {
-      max-width: 100%;
-    }
-
-    &__icon {
-      margin-bottom: var(--space-md);
-    }
-
-    &__label {
-      margin-bottom: var(--space-sm);
-    }
-
-    &__title {
-      font-size: 32px;
-      margin-bottom: var(--space-md);
-    }
-
-    &__desc {
-      margin-bottom: var(--space-md);
-    }
-
-    &__image {
-      max-width: 100%;
-    }
-
-    &__image-wrapper {
-      padding: var(--space-3xl);
-      max-width: 100%;
-    }
-  }
-
-  @include respond-to('sm') {
-    gap: var(--space-3xl);
-    padding-bottom: var(--space-xs);
-
-    &__title {
-      font-size: 32px;
-    }
-
-    &__buttons {
-      flex-direction: column;
-      width: 100%;
-
-      .button {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  }
-}
+// Feature panel block styles moved to blocks/_feature-panel.scss
 
 
 .b-blog {
@@ -992,19 +784,19 @@
   background-color: var(--color-white);
 
   &-title-nav {
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-md);
     align-items: center;
   }
 
   &-title {
     h3 {
       font-size: 38px;
-      font-weight: 700;
       line-height: 150%;
+      font-weight: 500;
       color: var(--title);
-      color: var(--color-black);
-      margin: 0;
-      font-family: var(--font-bold);
+      margin-bottom: var(--space-lg);
+      margin-top: 0;
+      text-align: left;
     }
   }
 
@@ -1018,38 +810,29 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      border: 1px solid var(--color-gray-medium);
-      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-dark);
+      background-color: var(--color-gray-dark);
       cursor: pointer;
-      transition: all var(--transition-base);
+      transition: color var(--transition-base), background-color var(--transition-base);
+      color: var(--color-white);
       padding: 0;
+      position: relative;
 
-      svg {
-        width: 20px;
-        height: 20px;
-        fill: var(--color-gray-dark);
-        stroke: var(--color-gray-dark);
-        transition: all var(--transition-base);
+      // Material Icons
+      .material-icons {
+        position: relative;
+        z-index: 2;
+        font-size: 18px;
+        line-height: 1;
       }
 
       &:hover {
-        background-color: var(--color-gray-medium);
-        border-color: var(--color-gray-medium);
-
-        svg {
-          fill: var(--color-white);
-          stroke: var(--color-white);
-        }
+        background-color: var(--color-white);
+        color: var(--color-black) !important;
       }
 
       &:active {
         transform: scale(0.95);
-      }
-
-      &.b-blog-nav-prev {
-        svg {
-          transform: rotate(180deg);
-        }
       }
     }
   }
@@ -1152,10 +935,10 @@
 
 @include respond-to('md') {
   .b-blog {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
 
     &-title-nav {
-      margin-bottom: var(--space-3xl);
+      margin-bottom: var(--space-xl);
     }
 
     &-title {
@@ -1183,17 +966,12 @@
 
 @include respond-to('sm') {
   .b-blog {
-    padding: var(--section-padding-sm) 0;
-
-    &-title-nav {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-lg);
-    }
+    padding: var(--space-lg) 0;
 
     &-title {
       h3 {
         font-size: 28px;
+        margin-bottom: 0;
       }
     }
 
@@ -1206,21 +984,21 @@
 
 .b-form {
   color: var(--color-white);
-  padding: var(--space-xl) 0;
+  padding: var(--space-lg) 0;
 
   &-block {
     background-color: var(--color-primary);
     flex-direction: column;
     align-items: center;
-    gap: var(--space-2xl);
-    padding-top: var(--space-4xl);
-    padding-bottom: var(--space-4xl);
+    gap: var(--space-md);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
     max-width: 100%;
     margin: 0;
 
     &-svg {
-      width: 60px;
-      height: 68px;
+      width: 48px;
+      height: 54px;
       fill: var(--color-white);
       flex-shrink: 0;
     }
@@ -1230,7 +1008,7 @@
 
       &-inner {
         text-align: center;
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-md);
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
@@ -1284,7 +1062,6 @@
       form {
         display: flex;
         gap: var(--space-md);
-        align-items: center;
         justify-content: center;
         width: 100%;
 
@@ -1526,15 +1303,15 @@
   }
 
   @include respond-to('md') {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-lg) 0;
 
     &-block {
-      gap: var(--space-2xl);
+      gap: var(--space-lg);
     }
 
     &-block-item {
       max-width: 100%;
-      padding: var(--space-2xl);
+      padding: var(--space-lg);
 
       img {
         margin-bottom: var(--space-md);
@@ -1552,10 +1329,10 @@
   }
 
   @include respond-to('sm') {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-xl) 0;
 
     &-block-item {
-      padding: var(--space-2xl);
+      padding: var(--space-xl);
     }
   }
 }

@@ -1,0 +1,88 @@
+// Category Page Styles
+@use '../mixins' as *;
+
+.category-page {
+  padding: var(--space-xl) 0;
+  background-color: var(--color-white);
+}
+
+// Breadcrumb - uses styles from blocks/_breadcrumb.scss
+// Additional category-specific styles can be added here if needed
+
+// Category Header
+.category-header {
+  margin-bottom: var(--space-xl);
+
+  @include respond-to('md') {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+// Page title styles are now in blocks/_page-title.scss
+
+.category-description {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.category-results-count {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+// Category Posts Grid - using blog card styles
+.category-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3xl) var(--space-xl);
+  margin-bottom: var(--space-4xl);
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl) var(--space-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+}
+
+// Pagination styles are now in blocks/_pagination.scss
+// Using common wrapper class: .b-pagination
+
+// No Results
+.category-no-results {
+  text-align: center;
+  padding: var(--space-4xl) 0;
+  max-width: 600px;
+  margin: 0 auto;
+
+  @include respond-to('sm') {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+.category-no-results-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--color-black);
+  font-family: var(--font-bold);
+
+  @include respond-to('sm') {
+    font-size: 28px;
+  }
+}
+
+.category-no-results-text {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-xl) 0;
+}

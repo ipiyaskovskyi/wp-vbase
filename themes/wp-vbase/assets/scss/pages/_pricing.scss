@@ -1,0 +1,868 @@
+// Pricing Page Styles
+@use '../mixins' as *;
+
+// ============================================
+// Variables
+// ============================================
+$pricing-card-padding: var(--space-2xl);
+$pricing-card-padding-sm: var(--space-xl);
+$pricing-card-border-radius: 8px;
+$pricing-card-gap: var(--space-xl);
+$pricing-card-gap-sm: var(--space-lg);
+
+// ============================================
+// Animations
+// ============================================
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ============================================
+// Base Classes & Placeholders
+// ============================================
+
+// Base section spacing - matching home page
+// Home page uses padding: var(--space-xl) 0, so spacing between sections is 2x
+%section-spacing {
+  padding: var(--space-xl) 0;
+
+  @include respond-to('md') {
+    padding: var(--space-lg) 0;
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0;
+  }
+}
+
+// Base section title
+%section-title {
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  color: var(--color-black);
+  margin: 0 0 var(--space-lg);
+
+  @include respond-to('sm') {
+    font-size: var(--h3-size);
+  }
+}
+
+// Base flex container
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Base flex column container
+%flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Base responsive gap
+%responsive-gap {
+  gap: var(--space-md);
+
+  @include respond-to('sm') {
+    gap: var(--space-sm);
+  }
+}
+
+// Base card container
+%card-base {
+  display: flex;
+  flex-direction: column;
+  padding: $pricing-card-padding;
+  border-radius: $pricing-card-border-radius;
+  width: 100%;
+  min-height: 100%;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to('sm') {
+    padding: $pricing-card-padding-sm;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Base form container
+%form-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+
+  @include respond-to('sm') {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+// Base form input
+%form-input-base {
+  padding: 10px 16px;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  border: 1px solid rgba(112, 112, 112, 0.5);
+  border-radius: 4px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  min-width: 250px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  @include respond-to('sm') {
+    width: 100%;
+    min-width: auto;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+// Base form submit button
+%form-submit-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 14px 28px;
+  font-family: var(--font-medium);
+  font-size: var(--font-size-base);
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+
+  @include respond-to('sm') {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  &:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+}
+
+// ============================================
+// Main Container
+// ============================================
+.pricing-page {
+  padding: var(--space-xl) 0;
+  background: var(--color-white);
+
+  @include respond-to('md') {
+    padding: var(--space-lg) 0;
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0;
+  }
+}
+
+// ============================================
+// Header Section
+// ============================================
+.pricing-page__header {
+  text-align: center;
+  @extend %section-spacing;
+  position: relative;
+}
+
+.pricing-page__title {
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  color: var(--color-black);
+  margin: 0 0 var(--space-md);
+
+  letter-spacing: -0.02em;
+  font-weight: 500;
+
+  @include respond-to('sm') {
+    font-size: var(--h2-size);
+  }
+}
+
+.pricing-page__subtitle {
+  font-size: var(--font-size-xl);
+  font-family: Proxima Nova Light, sans-serif;
+  margin: 0 0 var(--space-lg);
+  font-weight: 300;
+  line-height: 1.6;
+
+  @include respond-to('sm') {
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--space-md);
+  }
+}
+
+// ============================================
+// DIY Banner
+// ============================================
+.pricing-page__diy-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  background-color: rgba(231, 235, 233, 0.5);
+  border-radius: 4px;
+  font-size: var(--font-size-lg);
+  color: var(--color-black);
+  max-width: 100%;
+
+  @include respond-to('sm') {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-sm);
+    width: 100%;
+  }
+
+  img {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+
+    @include respond-to('sm') {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.pricing-page__diy-text {
+  display: flex;
+  font-family: Proxima Nova Light, sans-serif;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  font-weight: 300;
+
+  @include respond-to('sm') {
+    justify-content: center;
+  }
+
+  strong {
+    font-weight: 400;
+  }
+}
+
+.pricing-page__diy-link {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color var(--transition-base), text-decoration-color var(--transition-base);
+
+  &:hover {
+    text-decoration-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+// ============================================
+// Pricing Plans Section
+// ============================================
+.pricing-page__plans {
+  @extend %section-spacing;
+  position: relative;
+  
+  // Subtle background decoration
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(198, 233, 112, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .row {
+    align-items: stretch;
+    
+    // Use gap instead of gutter
+    --bs-gutter-x: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    gap: $pricing-card-gap;
+
+    @include respond-to('md') {
+      gap: $pricing-card-gap-sm;
+    }
+
+    @include respond-to('sm') {
+      gap: var(--space-lg);
+      flex-direction: column;
+    }
+
+    // Reset all padding for children
+    > * {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    // Ensure columns work correctly
+    > [class*="col-"] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    // On screens below lg, ensure col-12 takes full width
+    @media (max-width: 991px) {
+      > .col-12 {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    // Adjust width calculation for col-lg-4 to account for gap
+    @media (min-width: 992px) {
+      > .col-lg-4 {
+        flex: 0 0 auto;
+        width: calc((100% - #{$pricing-card-gap} * 2) / 3);
+        max-width: calc((100% - #{$pricing-card-gap} * 2) / 3);
+      }
+    }
+  }
+}
+
+// ============================================
+// Pricing Card
+// ============================================
+.pricing-page__plans .row > [class*="col-"] {
+  animation: fadeInUp 0.6s ease-out backwards;
+
+  // Stagger animation for each column
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+.pricing-card {
+  @extend %card-base;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  // Decorative top border
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, currentColor 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  &:hover::before {
+    opacity: 0.3;
+  }
+
+  // Card variants
+  &--free {
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, rgba(231, 235, 233, 0.95) 100%);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    
+    &::before {
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1a2e26 100%);
+      color: var(--color-white);
+    }
+  }
+
+  &--base {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1a2e26 100%);
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 8px 30px rgba(27, 48, 40, 0.25);
+    z-index: 1;
+
+    @include respond-to('md') {
+      transform: scale(1);
+    }
+
+    &::before {
+      background: var(--color-accent);
+      opacity: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 16px 50px rgba(27, 48, 40, 0.35);
+
+      &::before {
+        opacity: 0.5;
+      }
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, var(--color-accent) 0%, rgba(198, 233, 112, 0.9) 100%);
+      color: var(--color-black);
+    }
+  }
+
+  &--pro {
+    background: linear-gradient(135deg, var(--color-accent) 0%, rgba(198, 233, 112, 0.9) 100%);
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 4px 20px rgba(198, 233, 112, 0.3);
+    
+    &::before {
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, var(--color-accent-light) 0%, rgba(231, 235, 233, 0.95) 100%);
+      color: var(--color-black);
+    }
+  }
+}
+
+.pricing-card__badge {
+  display: none;
+}
+
+.pricing-card__title {
+  font-size: var(--h3-size);
+  font-weight: 700;
+  margin: 0 0 var(--space-lg);
+  color: inherit;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+
+  @include respond-to('sm') {
+    font-size: var(--h4-size);
+    margin: 0 0 var(--space-md);
+  }
+}
+
+.pricing-card__price {
+  margin-bottom: var(--space-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-card__price-amount {
+  font-size: var(--font-size-5xl);
+  font-weight: 800;
+  line-height: 1;
+  color: inherit;
+  letter-spacing: -0.03em;
+  display: inline-block;
+  margin-right: var(--space-xs);
+
+  @include respond-to('sm') {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.pricing-card__price-period {
+  font-size: var(--font-size-lg);
+  color: inherit;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-2xl);
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: inherit;
+  position: relative;
+  transition: transform var(--transition-base);
+
+  @include respond-to('sm') {
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-sm);
+  }
+
+  &:hover {
+    transform: translateX(4px);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.pricing-card__feature-icon {
+  flex-shrink: 0;
+  color: inherit;
+  font-size: 20px;
+  margin-top: 2px;
+  opacity: 0.9;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-base);
+  
+  @include respond-to('sm') {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+  
+  &.material-icons {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: normal;
+
+    @include respond-to('sm') {
+      font-size: 18px;
+    }
+  }
+
+  // Add subtle animation on hover
+  .pricing-card__feature:hover & {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.pricing-card .button {
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+  transition: all var(--transition-base);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// ============================================
+// High Volume Section
+// ============================================
+.pricing-page__high-volume {
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, rgba(198, 233, 112, 0.2) 100%);
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: $pricing-card-border-radius;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+  border: 1px solid rgba(198, 233, 112, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include respond-to('md') {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    max-width: 600px;
+  }
+
+  @include respond-to('sm') {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    max-width: 100%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(198, 233, 112, 0.05) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.pricing-page__high-volume-content {
+  @extend %flex-column-center;
+  @extend %responsive-gap;
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-page__high-volume-text {
+  font-size: var(--font-size-3xl);
+  color: var(--color-black);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-xs);
+  letter-spacing: -0.01em;
+
+  @include respond-to('sm') {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+  }
+}
+
+// ============================================
+// FAQ Section
+// ============================================
+.pricing-page__faq {
+  @extend %section-spacing;
+
+  .row {
+    align-items: flex-start;
+    
+    // Ensure proper spacing when using gx-0
+    &.gx-0 {
+      --bs-gutter-x: 0;
+      margin-left: 0;
+      margin-right: 0;
+      
+      > * {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.pricing-page__faq-title {
+  @extend %section-title;
+  text-align: left;
+
+  @include respond-to('sm') {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+}
+
+.pricing-page__faq-illustration {
+  @extend %flex-center;
+  padding: var(--space-xl);
+
+  @include respond-to('md') {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+}
+
+.pricing-page__faq-image {
+  width: 100%;
+  height: auto;
+
+  img {
+    filter: grayscale(100%);
+    width: 100%;
+    height: auto;
+  }
+}
+
+// ============================================
+// FAQ Block Styles
+// ============================================
+.b-faq-block {
+  padding: var(--space-xl) 0;
+
+  @include respond-to('md') {
+    padding: var(--space-lg) 0;
+  }
+
+  @include respond-to('sm') {
+    padding: var(--space-lg) 0;
+  }
+}
+
+.b-faq-block-qa {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.b-faq-block-qa-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-md) 0;
+
+  @include respond-to('sm') {
+    padding: var(--space-sm) 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.b-faq-block-qa-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 0;
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-black);
+  transition: color var(--transition-base);
+  line-height: 1.5;
+
+  @include respond-to('sm') {
+    font-size: var(--font-size-base);
+    gap: var(--space-sm);
+  }
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition-base);
+    color: var(--color-primary);
+    margin-left: var(--space-sm);
+
+    @include respond-to('sm') {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &.active {
+    color: var(--color-primary);
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.b-faq-block-qa-item-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-base), overflow var(--transition-base);
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0 0 var(--space-lg);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+
+    @include respond-to('sm') {
+      font-size: var(--font-size-base);
+      margin: 0 0 var(--space-md);
+      line-height: 1.6;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-xl);
+
+    @include respond-to('sm') {
+      margin: var(--space-sm) 0;
+      padding-left: var(--space-lg);
+    }
+
+    li {
+      margin-bottom: var(--space-xs);
+      line-height: 1.25;
+      font-size: var(--font-size-base);
+    }
+  }
+
+  strong {
+    color: var(--color-black);
+    font-weight: 600;
+  }
+}
+
+// Add top margin to first child when content is expanded
+.b-faq-block-qa-item-head.active + .b-faq-block-qa-item-content {
+  > *:first-child {
+    margin-top: var(--space-lg);
+
+    @include respond-to('sm') {
+      margin-top: var(--space-md);
+    }
+  }
+}
+
+// Engagement section styles moved to blocks/_engagement.scss

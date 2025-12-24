@@ -8,11 +8,13 @@
 get_header();
 ?>
 
-<section class="hero">
+<main id="primary" class="site-main" role="main">
+
+<section class="hero" aria-labelledby="hero-heading">
     <div class="l-container">
         <div class="hero__content u-flex u-justify-between u-items-center u-flex-wrap">
             <div class="hero__content-left">
-                <h1><strong>validityBase</strong></h1>
+                <h1 id="hero-heading"><strong>validityBase</strong></h1>
                 <h2><?php esc_html_e('The trust layer for valuable data', 'vbase'); ?></h2>
                 <p class="hero__text"><?php esc_html_e('Build trust. Close deals.', 'vbase'); ?></p>
                 <!-- <a class="button button--dark with-arrow u-flex u-items-center" target="_blank" href="https://app.vbase.com/">
@@ -28,44 +30,44 @@ get_header();
                 <?php esc_html_e('Tailored Solutions for', 'vbase'); ?>
             </div>
             <div class="hero__bottom-grid">
-                <a href="<?php echo esc_url(home_url('/alt-data/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Alternative Data', 'vbase'); ?></span>
                     <p><?php esc_html_e('Showcase and increase your data\'s value', 'vbase'); ?></p>
-                    <!-- <a href="<?php echo esc_url(home_url('/alt-data/')); ?>" class="hero__bottom-item-link">
+                    <a href="<?php echo esc_url(home_url('/alt-data/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a> -->
-                </a>
+                    </a>
+                </div>
 
-                <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Investment Managers and Allocators', 'vbase'); ?></span>
                     <p><?php esc_html_e('Turn any strategy into a live verified index', 'vbase'); ?></p>
-                    <!-- <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="hero__bottom-item-link">
+                    <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a> -->
-                </a>
+                    </a>
+                </div>
 
-                <a href="<?php echo esc_url(home_url('/signals/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Trading Signals', 'vbase'); ?></span>
                     <p><?php esc_html_e('Make signals credible to leading hedge funds', 'vbase'); ?></p>
-                    <!-- <a href="<?php echo esc_url(home_url('/signals/')); ?>" class="hero__bottom-item-link">
+                    <a href="<?php echo esc_url(home_url('/signals/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a> -->
-                </a>
+                    </a>
+                </div>
 
-                <a href="<?php echo esc_url(home_url('/predictive-data/')); ?>" class="hero__bottom-item u-flex u-flex-col u-justify-between">
+                <div class="hero__bottom-item u-flex u-flex-col u-justify-between">
                     <span><?php esc_html_e('Predictive Datasets', 'vbase'); ?></span>
                     <p><?php esc_html_e('Prove the value of your data and models', 'vbase'); ?></p>
-                    <!-- <a href="<?php echo esc_url(home_url('/predictive-data/')); ?>" class="hero__bottom-item-link">
+                    <a href="<?php echo esc_url(home_url('/predictive-data/')); ?>" class="hero__bottom-item-link">
                         <?php esc_html_e('Learn More', 'vbase'); ?>
-                    </a> -->
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     <div class="hero__bg"></div>
 </section>
 
-<section id="client-logos" class="b-logos">
+<section id="client-logos" class="b-logos" aria-labelledby="client-logos-heading">
     <div class="l-container">
         <div class="b-logos-title">
             <p><?php esc_html_e('validityBase, Chosen by Clients Setting the Standard Worldwide', 'vbase'); ?></p>
@@ -77,7 +79,7 @@ get_header();
                 ['url' => 'https://stocktwits.com/', 'image' => 'client-logos/stocktwits-logo.svg', 'alt' => 'StockTwits'],
                 ['url' => 'https://www.tenzingmemo.com/', 'image' => 'client-logos/tenzing-logo.svg', 'alt' => 'Tenzing'],
                 ['url' => 'https://www.bluewatermacro.com/', 'image' => 'client-logos/bluewatermacro-logo.png', 'alt' => 'BlueWater Macro'],
-                ['url' => 'https://en.allears.ai/', 'image' => 'client-logos/image2.webp', 'alt' => 'AllEars'],
+                ['url' => 'https://en.allears.ai/', 'image' => 'client-logos/allears-logo.svg', 'alt' => 'AllEars'],
                 ['url' => 'https://www.quantconnect.com/', 'image' => 'client-logos/qc-copy.webp', 'alt' => 'QuantConnect'],
                 ['url' => 'https://giesbusiness.illinois.edu/experience/academies-centers/derivatives-and-trading-academy', 'image' => 'client-logos/uiuc-logo.svg', 'alt' => 'UIUC'],
                 ['url' => 'https://newmarkrisk.com/', 'image' => 'client-logos/nmr-logo.png', 'alt' => 'NewMark Risk'],
@@ -93,9 +95,9 @@ get_header();
             <?php endforeach; ?>
         </div>
     </div>
-</div>
+</section>
 
-<section id="featured-in" class="b-logos">
+<section id="featured-in" class="b-logos" aria-labelledby="featured-in-heading">
     <div class="l-container">
         <div class="b-logos-title">
             <p><?php esc_html_e('Featured In', 'vbase'); ?></p>
@@ -115,8 +117,9 @@ get_header();
     </div>
 </section>
 
-<section id="statistics" class="b-statistics">
+<section id="statistics" class="b-statistics" aria-labelledby="statistics-heading">
     <div class="l-container">
+        <h2 id="statistics-heading" class="screen-reader-text"><?php esc_html_e('Key statistics', 'vbase'); ?></h2>
         <div class="b-statistics-content">
             <span>500+ <?php esc_html_e('indices', 'vbase'); ?></span>
             <span class="separator">•</span>
@@ -129,9 +132,9 @@ get_header();
     </div>
 </section>
 
-<section id="trust-by-design" class="b-trust-by-design">
+<section id="trust-by-design" class="b-trust-by-design" aria-labelledby="trust-by-design-heading">
     <div class="l-container">
-        <h3><?php esc_html_e('Trust and Security by Design', 'vbase'); ?></h3>
+        <h3 id="trust-by-design-heading"><?php esc_html_e('Trust and Security by Design', 'vbase'); ?></h3>
         <div class="b-trust-by-design-block u-flex u-justify-between">
             <div class="b-trust-by-design-block-item-left">
                 <div class="b-trust-by-design-block-item-img">
@@ -165,63 +168,7 @@ get_header();
     </div>
 </section>
 
-<section class="section">
-    <div class="l-container">
-        <div class="feature-panel">
-            <div class="feature-panel__content">
-                <div class="feature-panel__icon">
-                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/icon-shield.svg'); ?>" alt="" width="48" height="56">
-                </div>
-                <span class="feature-panel__label"><?php esc_html_e('Developers And Builders', 'vbase'); ?></span>
-                <h3 class="feature-panel__title"><?php esc_html_e('Trust as a Service', 'vbase'); ?></h3>
-                <p class="feature-panel__desc"><?php esc_html_e('vBase globally credible audit trails provide verifiable history for critical data', 'vbase'); ?></p>
-                <ul class="feature-panel__list">
-                    <li><strong><?php esc_html_e('No heavyweight platforms:', 'vbase'); ?></strong> <?php esc_html_e('Robust lightweight process that can be called from any environment', 'vbase'); ?></li>
-                    <li><strong><?php esc_html_e('Compliance-Ready:', 'vbase'); ?></strong> <?php esc_html_e('Prove "what was known when" for regulated and otherwise critical workflows', 'vbase'); ?></li>
-                </ul>
-                <div class="feature-panel__buttons">
-                    <a href="https://docs.vbase.com/" class="button button--dark with-arrow" target="_blank" rel="noopener"><?php esc_html_e('Learn More', 'vbase'); ?></a>
-                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="button button--white"><?php esc_html_e('Talk to Us', 'vbase'); ?></a>
-                </div>
-            </div>
-            <div class="feature-panel__image">
-                <div class="feature-panel__image-wrapper">
-                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/image7.png'); ?>" alt="<?php esc_attr_e('Trust as a Service', 'vbase'); ?>">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="l-container">
-        <div class="feature-panel feature-panel--reverse">
-            <div class="feature-panel__content">
-                <div class="feature-panel__icon">
-                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/icon-chart.svg'); ?>" alt="" width="48" height="48">
-                </div>
-                <span class="feature-panel__label"><?php esc_html_e('Investment Managers and Research', 'vbase'); ?></span>
-                <h3 class="feature-panel__title"><?php esc_html_e('Turn Trading Strategies into Trusted Products', 'vbase'); ?></h3>
-                <p class="feature-panel__desc"><?php esc_html_e('vBase turns any signal, model, portfolio or basket into a verifiable live index.', 'vbase'); ?></p>
-                <ul class="feature-panel__list">
-                    <li><strong><?php esc_html_e('Instant Credibility:', 'vbase'); ?></strong> <?php esc_html_e('Independently verifiable audit trails that prove performance without exposing IP', 'vbase'); ?></li>
-                    <li><strong><?php esc_html_e('Trust at Scale:', 'vbase'); ?></strong> <?php esc_html_e('Automate the proof investors demand at a fraction of the cost of legacy solutions', 'vbase'); ?></li>
-                </ul>
-                <div class="feature-panel__buttons">
-                    <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="button button--dark with-arrow"><?php esc_html_e('Learn More', 'vbase'); ?></a>
-                    <a href="https://app.vbase.com/" class="button button--white" target="_blank" rel="noopener"><?php esc_html_e('Get Started', 'vbase'); ?></a>
-                </div>
-            </div>
-            <div class="feature-panel__image">
-                <div class="feature-panel__image-wrapper">
-                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/vBase-diagram___-2-768x476.webp'); ?>" alt="<?php esc_attr_e('Trading Strategies Chart', 'vbase'); ?>">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
+<section class="section" aria-labelledby="data-providers-heading">
     <div class="l-container">
         <div class="feature-panel">
             <div class="feature-panel__content">
@@ -229,7 +176,7 @@ get_header();
                     <img src="<?php echo esc_url(VBASE_URI . '/assets/images/icon-checkmark.svg'); ?>" alt="" width="48" height="48">
                 </div>
                 <span class="feature-panel__label"><?php esc_html_e('Data Providers', 'vbase'); ?></span>
-                <h3 class="feature-panel__title"><?php esc_html_e('Package Data to Sell at a Premium', 'vbase'); ?></h3>
+                <h3 id="data-providers-heading" class="feature-panel__title"><?php esc_html_e('Package Data to Sell at a Premium', 'vbase'); ?></h3>
                 <p class="feature-panel__desc"><?php esc_html_e('vBase turns your data into a verifiable, investor-ready product that commands higher pricing and faster adoption.', 'vbase'); ?></p>
                 <ul class="feature-panel__list">
                     <li><strong><?php esc_html_e('Enrichment API:', 'vbase'); ?></strong> <?php esc_html_e('Automated audit trails prove data is point-in-time and trial-ready', 'vbase'); ?></li>
@@ -249,6 +196,62 @@ get_header();
     </div>
 </section>
 
+<section class="section" aria-labelledby="investment-managers-heading">
+    <div class="l-container">
+        <div class="feature-panel feature-panel--reverse">
+            <div class="feature-panel__content">
+                <div class="feature-panel__icon">
+                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/icon-chart.svg'); ?>" alt="" width="48" height="48">
+                </div>
+                <span class="feature-panel__label"><?php esc_html_e('Investment Managers and Research', 'vbase'); ?></span>
+                <h3 id="investment-managers-heading" class="feature-panel__title"><?php esc_html_e('Turn Trading Strategies into Trusted Products', 'vbase'); ?></h3>
+                <p class="feature-panel__desc"><?php esc_html_e('vBase turns any signal, model, portfolio or basket into a verifiable live index.', 'vbase'); ?></p>
+                <ul class="feature-panel__list">
+                    <li><strong><?php esc_html_e('Instant Credibility:', 'vbase'); ?></strong> <?php esc_html_e('Independently verifiable audit trails that prove performance without exposing IP', 'vbase'); ?></li>
+                    <li><strong><?php esc_html_e('Trust at Scale:', 'vbase'); ?></strong> <?php esc_html_e('Automate the proof investors demand at a fraction of the cost of legacy solutions', 'vbase'); ?></li>
+                </ul>
+                <div class="feature-panel__buttons">
+                    <a href="<?php echo esc_url(home_url('/track-record/')); ?>" class="button button--dark with-arrow"><?php esc_html_e('Learn More', 'vbase'); ?></a>
+                    <a href="https://app.vbase.com/" class="button button--white" target="_blank" rel="noopener"><?php esc_html_e('Get Started', 'vbase'); ?></a>
+                </div>
+            </div>
+            <div class="feature-panel__image">
+                <div class="feature-panel__image-wrapper">
+                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/alfa-signals-group.png'); ?>" alt="<?php esc_attr_e('Trading Strategies Chart', 'vbase'); ?>">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="developers-heading">
+    <div class="l-container">
+        <div class="feature-panel">
+            <div class="feature-panel__content">
+                <div class="feature-panel__icon">
+                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/icon-shield.svg'); ?>" alt="" width="48" height="56">
+                </div>
+                <span class="feature-panel__label"><?php esc_html_e('Developers And Builders', 'vbase'); ?></span>
+                <h3 id="developers-heading" class="feature-panel__title"><?php esc_html_e('Trust as a Service', 'vbase'); ?></h3>
+                <p class="feature-panel__desc"><?php esc_html_e('vBase globally credible audit trails provide verifiable history for critical data', 'vbase'); ?></p>
+                <ul class="feature-panel__list">
+                    <li><strong><?php esc_html_e('No heavyweight platforms:', 'vbase'); ?></strong> <?php esc_html_e('Robust lightweight process that can be called from any environment', 'vbase'); ?></li>
+                    <li><strong><?php esc_html_e('Compliance-Ready:', 'vbase'); ?></strong> <?php esc_html_e('Prove "what was known when" for regulated and otherwise critical workflows', 'vbase'); ?></li>
+                </ul>
+                <div class="feature-panel__buttons">
+                    <a href="https://docs.vbase.com/" class="button button--dark with-arrow" target="_blank" rel="noopener"><?php esc_html_e('Learn More', 'vbase'); ?></a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="button button--white"><?php esc_html_e('Talk to Us', 'vbase'); ?></a>
+                </div>
+            </div>
+            <div class="feature-panel__image">
+                <div class="feature-panel__image-wrapper">
+                    <img src="<?php echo esc_url(VBASE_URI . '/assets/images/stamper-screenshot.png'); ?>" alt="<?php esc_attr_e('Trust as a Service - Stamp Found', 'vbase'); ?>" onerror="this.src='<?php echo esc_url(VBASE_URI . '/assets/images/image7.png'); ?>'">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <?php
 // Blog posts section
@@ -259,22 +262,18 @@ $recent_posts = get_posts([
 
 if ($recent_posts) :
 ?>
-<section id="blog" class="b-blog">
+<section id="blog" class="b-blog" aria-labelledby="blog-heading">
     <div class="l-container">
         <div class="b-blog-title-nav u-flex u-justify-between u-items-center">
             <div class="b-blog-title">
-                <h3><?php esc_html_e('Articles & Resources', 'vbase'); ?></h3>
+                <h3 id="blog-heading"><?php esc_html_e('Articles & Resources', 'vbase'); ?></h3>
             </div>
             <div class="b-blog-nav u-flex">
                 <button class="b-blog-nav-button u-flex b-blog-nav-prev prev-js" aria-label="<?php esc_attr_e('Prev', 'vbase'); ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
-                        <use xlink:href="#next-prew"></use>
-                    </svg>
+                    <span class="material-icons">arrow_back</span>
                 </button>
                 <button class="b-blog-nav-button u-flex b-blog-nav-next next-js" aria-label="<?php esc_attr_e('Next', 'vbase'); ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
-                        <use xlink:href="#next-prew"></use>
-                    </svg>
+                    <span class="material-icons">arrow_forward</span>
                 </button>
             </div>
         </div>
@@ -310,7 +309,7 @@ if ($recent_posts) :
 </section>
 <?php endif; ?>
 
-<section id="form" class="b-form">
+<section id="form" class="b-form" aria-labelledby="form-heading">
     <div class="l-container">
         <div class="b-form-block u-flex u-flex-wrap u-justify-center">
             <svg class="b-form-block-svg" xmlns="http://www.w3.org/2000/svg" width="59.727" height="67.741" viewBox="0 0 59.727 67.741">
@@ -330,8 +329,9 @@ if ($recent_posts) :
     </div>
 </section>
 
-<section id="started" class="b-started">
+<section id="started" class="b-started" aria-labelledby="started-heading">
     <div class="l-container">
+        <h2 id="started-heading" class="screen-reader-text"><?php esc_html_e('Get started resources', 'vbase'); ?></h2>
         <div class="b-started-block u-flex u-flex-wrap">
             <div class="b-started-block-item b-started-block-left">
                 <img src="<?php echo esc_url(VBASE_URI . '/assets/images/doc.svg'); ?>" alt="">
@@ -356,6 +356,8 @@ if ($recent_posts) :
         </div>
     </div>
 </section>
+
+</main>
 
 <?php
 get_footer();

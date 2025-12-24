@@ -1,0 +1,54 @@
+// Search Page Styles
+@use '../mixins' as *;
+
+.search-page {
+  padding: var(--space-xl) 0;
+  background-color: var(--color-white);
+}
+
+// Breadcrumb - uses styles from blocks/_breadcrumb.scss
+// Additional search-specific styles can be added here if needed
+
+// Search Header
+.search-header {
+  margin-bottom: var(--space-xl);
+
+  @include respond-to('md') {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+// Page title styles are now in blocks/_page-title.scss
+
+.search-results-count {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+// Search Posts Grid - using blog card styles
+.search-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3xl) var(--space-xl);
+  margin-bottom: var(--space-4xl);
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl) var(--space-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+}
+
+// Pagination styles are now in blocks/_pagination.scss
+// Using common wrapper class: .b-pagination
+
+// No Results - uses error-404 styles from pages/_404.scss
+// The search page now uses the same structure as 404 page for "Nothing Found" section
+

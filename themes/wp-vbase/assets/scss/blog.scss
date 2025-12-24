@@ -1,0 +1,9 @@
+// Blog-related pages entry point (blog, search, category, single)
+// This file imports main styles + all blog-related page styles
+
+@use 'main';
+@use 'pages/blog';
+@use 'pages/search';
+@use 'pages/category';
+@use 'pages/single';
+@use 'pages/404' as error404;

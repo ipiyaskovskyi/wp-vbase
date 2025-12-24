@@ -13,8 +13,21 @@
 @use 'utilities/spacing';
 @use 'utilities/flex';
 
+@use 'blocks/breadcrumb';
+@use 'blocks/blog-post-card';
 @use 'blocks/button';
 @use 'blocks/card';
+@use 'blocks/engagement';
+@use 'blocks/feature-panel';
+@use 'blocks/form';
+@use 'blocks/page-title';
+@use 'blocks/pagination';
+@use 'blocks/search-form';
 
 @use 'utilities/global';
+
+@use 'pages/404' as error404;
+@use 'pages/contact';
+@use 'pages/pricing';
+@use 'pages/demo';
 
